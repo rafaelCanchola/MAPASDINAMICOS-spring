@@ -1,0 +1,788 @@
+.custom_reportsUniverse{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.custom_reportsUniverse .notFound{
+    background: #F1F1F1;
+    color: #57575A;
+    font-size: 140%;
+    padding: 5px;
+    border-top: 1px solid #BBBBBB;
+    border-bottom: 1px solid #BBBBBB;
+}
+.custom_reportsUniverse .HeaderSection{
+    position: absolute;
+    top:0px;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #BBBBBB;
+    text-align: left;
+}
+.custom_reportsUniverse .dataSection{
+    position: absolute;
+    /*top:60px;*/
+    top:0px;
+    width:100%;
+    bottom: 0px;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+.custom_reportsUniverse .doctsUniverseLink.enlace{
+    cursor: pointer;
+}
+
+.custom_reportsUniverse .dataSection .section{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.custom_reportsUniverse .sectionFilters{
+    position:absolute;
+    left:10%;/*0px*/
+    right:11%;
+    top:120px;
+    bottom:0px;
+    overflow:auto;
+
+}
+.custom_reportsUniverse #ordering{
+    position: absolute;
+    width:95%;
+    top:0px;
+    bottom: 0px;
+    right: 0px;
+}
+.custom_reportsUniverse .section5 .bottomSection{
+    position:absolute;
+    right:0px;
+    left: 0px;
+    bottom:0px;
+    text-align: center;
+}
+.custom_reportsUniverse .section5 .sectionButtons{
+    position:absolute;
+    width:10%;
+    top:0px;
+    left:0px;
+    bottom:0px;
+}
+.custom_reportsUniverse .section2 .sectionButtonsLeft{
+    position:absolute;
+    width:10%;
+    top:120px;
+    left:0px;
+    bottom:0px;
+    
+}
+.custom_reportsUniverse .section2 #btnStep2Back{
+    margin-top: 50%;
+    cursor: pointer;
+}
+.custom_reportsUniverse .section2 .sectionButtons{
+    position:absolute;
+    width:10%;
+    top:120px;
+    right:0px;
+    bottom:0px;
+}
+
+.custom_reportsUniverse .section2 .sectionButtons .btnLeft{
+    position: relative;
+    float: left;
+    left: -12px;
+}
+.custom_reportsUniverse .section2 .sectionButtons .btnRight{
+    position: relative;
+    float: right;
+    right: -12px;
+}
+.custom_reportsUniverse .boxContainer{ 
+  width: 80%;
+  height: 300px;
+  position: relative;
+  margin-top: 25px;
+  -webkit-box-shadow: 3px 3px 10px -1px rgba(0,0,0,0.66);
+-moz-box-shadow: 3px 3px 10px -1px rgba(0,0,0,0.66);
+box-shadow: 3px 3px 10px -1px rgba(0,0,0,0.66);
+}
+
+.custom_reportsUniverse .boxContainer{ 
+  width: 80%;
+  position: relative;
+  margin-top: 25px;
+}
+.custom_reportsUniverse .boxContainer .titleBlock{
+    position: absolute;
+    top:0px;
+    width: 100%;
+    height: 50px;
+    background: #9A9B9A;
+    font-weight: bolder;
+}
+
+.custom_reportsUniverse .titleBlock .label{
+      position: absolute;
+  left: 30px;
+  top: 15px;
+  color: #D9DAD9;
+  font-size: 130%;
+}
+.custom_reportsUniverse .boxContainer .dataBlock{
+    position: absolute;
+    top:50px;
+    width: 100%;
+    bottom: 50px;
+    background: #FFF;
+    overflow: auto;
+}
+.custom_reportsUniverse #btnStep2Next{
+    margin-top: 50%;
+    cursor: pointer;
+}
+.custom_reportsUniverse #btnStep2Next:hover .label{
+    color: #006BA7 !important;
+}
+.custom_reportsUniverse #btnStep2Next:hover .trep_row_rightBig{
+    background-position: -677px -5px;
+}
+.custom_reportsUniverse #btnStep2Next .label{
+    font-weight: bold;
+    font-size: 110%;
+    color: #59595B;
+    width:100%;
+    
+}
+
+
+.custom_reportsUniverse #btnBack2{
+    margin-top: 100%;
+    cursor: pointer;
+}
+.custom_reportsUniverse #btnBack2:hover .label{
+    color: #006BA7 !important;
+}
+.custom_reportsUniverse #btnBack2:hover .trep_row_leftBig{
+    background-position: -620px -39px;
+}
+.custom_reportsUniverse #btnBack2 .label{
+    font-weight: bold;
+    font-size: 110%;
+    color: #59595B;
+    width:100%;
+    
+}
+
+.custom_reportsUniverse .dataBlock .itemFieldReport{
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #BBBBBB;
+        text-align: left;
+        font-size: 120%;
+        color:#808080;
+        cursor: pointer;
+}
+.custom_reportsUniverse .itemFieldReport .label{
+    margin-left: 20px;
+}
+.custom_reportsUniverse .itemFieldReport_selected{
+    color: #00264B !important;
+    font-weight: bold;
+}
+.custom_reportsUniverse .boxContainer .footerBlock{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    bottom: 0px;
+    background: #D9DAD9;
+    text-align: center;
+    cursor: pointer;
+}
+
+.custom_reportsUniverse .boxContainer .footerBlock .label{
+    position: relative;
+  top: 4px;
+  display: inline-block;
+  color: #7B7D7F;
+  font-size: 120%;
+  font-weight: bold;
+    margin-left: 5px;
+  margin-right: 5px;
+}
+.custom_reportsUniverse .boxContainer .footerBlock .icon{
+    position: relative;
+    top:10px;
+    display: inline-block;
+}
+
+
+.custom_reportsUniverse .step{
+    position: relative;
+    display: inline-block;
+}
+
+.custom_reportsUniverse .step .vignette{
+    margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  top: 12px;
+}
+
+.custom_reportsUniverse .vignette .number{
+   position: absolute;
+  color: #00264B;
+  font-size: 140%;
+  top: 6px;
+  left: 9px;
+}
+.custom_reportsUniverse .step .label{
+    font-size: 130%;
+  color: #808080;
+  display: inline-block;
+  margin-left: 3px;
+    
+}
+
+.custom_reportsUniverse .FieldReport{
+        position: relative;
+        border: 1px solid transparent;
+        padding-left: 10%;
+        text-align: left;
+}
+.custom_reportsUniverse .FieldReport .label{
+    color: #7A7D7F;
+  float: left;
+  position: relative;
+  top: 15px;
+  font-size: 120%;
+  font-weight: bold;
+  
+}
+.custom_reportsUniverse .titleSubsection{
+    font-weight:bold;
+    color:#00264B;
+    font-size: 140%;
+    margin-top:20px;
+}
+.custom_reportsUniverse .FieldReport .textInput{
+   
+      outline: 0;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #D7D7D7;
+  border-radius: 2px;
+  background-color: #fff;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 85%;
+  margin-top: 35px;
+  display: block;
+  color: #7A7D7F;
+}
+
+.custom_reportsUniverse .FieldReport .selectInput{
+    outline: 0;
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #D7D7D7;
+  border-radius: 2px;
+  background-color: #fff;
+  background-image: none;
+  width: 90%;
+  margin-top: 35px;
+  display: block;
+  color: #7A7D7F;
+  font-size: 120%;
+}
+.custom_reportsUniverse .option_fields{
+    position:relative;display: inline-block;float:left;
+}
+.custom_reportsUniverse .option_operator{
+    position:relative;display: inline-block;float:left;
+}
+.custom_reportsUniverse .option_filter{
+    position:relative;display: inline-block;float:left;
+}
+.custom_reportsUniverse #filtering{
+    width:100%;display:inline-block;background:#F1F1F1;
+}
+.custom_reportsUniverse .itemFilter{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 23px;
+    padding-top: 5px;
+    border-bottom: 1px solid #BBBBBB;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.custom_reportsUniverse .itemFilter .label{
+        position: relative;
+    float: left;
+    font-size: 130%;
+}
+.custom_reportsUniverse .itemFilter .icon{
+    position: relative;
+    float: right;
+    top: -3px;
+    cursor: pointer;
+}
+
+.template_reports2{
+    background:url("img/reportsold.png") top left no-repeat;
+}
+.template_reports{
+    background:url("img/reports.png") top left no-repeat;
+}
+
+.trep_remove{
+    width: 25px;
+    height: 25px;
+    background-position: -621px -12px;
+}
+.trep_plus{
+    width: 27px;
+    height: 28px;
+    background-position: -709px -8px;
+    margin-top: 5px;
+    margin-left: 7px;
+}
+.trep_row_rightBig{
+    width: 25px;
+    height: 33px;
+    background-position: -651px -5px;
+}
+.trep_row_rightBig:hover{
+    width: 25px;
+    height: 33px;
+    background-position: -677px -5px;
+}
+
+.trep_row_leftBig{
+         width: 25px;
+    height: 33px;
+    background-position: -646px -39px;
+}
+.trep_row_leftBig:hover{
+          width: 25px;
+    height: 33px;
+    background-position: -620px -39px;
+}
+
+.trep_row_right{
+      width: 25px;
+  height: 25px;
+  background-position: 2px -9px;
+}
+
+.trep_row_left{
+    width: 25px;
+  height: 25px;
+  background-position: -29px -9px;
+}
+
+.trep_vignette{
+      width: 45px;
+  height: 35px;
+  background-position: -348px -21px;
+  
+}
+
+.trep_columns{
+      width: 133px;
+  height: 52px;
+  background-position: -14px -12px;
+  margin-bottom: 10px;
+}
+.trep_rows{
+        width: 133px;
+  height: 52px;
+  background-position: -156px -8px;
+  margin-bottom: 10px;
+}
+.trep_print{
+       width: 27px;
+  height: 31px;
+  background-position: -62px -12px;
+}
+.trep_pdf{
+        width: 27px;
+  height: 31px;
+  background-position: -437px -6px;
+
+}
+.trep_pdf:hover{
+      width: 27px;
+  height: 31px;
+  background-position: -407px -6px;
+}
+
+.trep_csv{
+           width: 27px;
+  height: 31px;
+  background-position: -494px -6px;
+ 
+}
+.trep_csv:hover{
+      width: 27px;
+  height: 31px;
+  background-position: -469px -6px;
+}
+
+.trep_tabular{
+      width: 27px;
+  height: 31px;
+  background-position: -439px -12px;
+ 
+}
+.trep_filter{
+    width: 27px;
+  height: 31px;
+  background-position: -522px -6px;
+}
+
+.trep_filter:hover{
+     width: 27px;
+  height: 31px;
+  background-position: -554px -6px;
+}
+
+.filter_active{
+    background-position:-584px -6px !important;
+}
+.trep_filter_clear{
+      width: 27px;
+  height: 31px;
+  background-position: -407px -40px;
+}
+.trep_filter_clear:hover{
+      width: 27px;
+  height: 31px;
+  background-position: -438px -40px;
+}
+.trep_graph{
+      width: 27px;
+  height: 31px;
+  background-position: -154px -12px;
+  
+}
+
+.trep_next{
+    width: 20px;
+  height: 25px;
+  background-position: -473px -44px;
+}
+.trep_next:hover{
+      width: 20px;
+  height: 25px;
+  background-position: -515px -44px;
+}
+.trep_prev{
+      width: 20px;
+  height: 25px;
+  background-position: -491px -44px;
+}
+.trep_prev:hover{
+      width: 20px;
+  height: 25px;
+  background-position: -533px -44px;
+}
+.custom_reportsUniverse .activeVignette .trep_vignette{
+     background-position: -299px -21px !important;
+}
+.custom_reportsUniverse  .activeVignette .label{
+     color:#00264B !important;
+     font-weight: bold;
+}
+
+
+.custom_reportsUniverse .section4 #btnStep4Back{
+    position: absolute;
+    float: left;
+      top: -11px;
+  left: 10px;
+}
+
+.custom_reportsUniverse .section4 .Header{
+    position: relative;
+    width:100%;
+   background: #fff;
+    height: 35px;
+}
+.custom_reportsUniverse .section4 .exportOptions{
+    position: absolute;
+    float: left;
+    top:2px;
+    right: 0px;
+}
+.custom_reportsUniverse .section4 .infoReport{
+    position: absolute;
+    top:36px;
+    width:100%;
+    bottom: 40px;
+    overflow: auto;
+}
+.custom_reportsUniverse .section4 .headerTabular{
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.custom_reportsUniverse .section4 .tabsec4{
+    position: relative;
+    height: 100%;
+    width:100px;
+    background: red;
+    color:white;
+}
+.custom_reportsUniverse .results_table_filter .Row:hover{
+    background: #eee !important;
+}
+.custom_reportsUniverse .results_table_filter .Row_selected{
+    background: #E1E3E4 !important;
+}
+.custom_reportsUniverse .itemReport{
+    float: left;
+    position: relative;
+    margin-right: 15px;
+}
+.title_report{
+      
+    height: 35px;
+  line-height: 35px;
+  margin-left: 10px;
+  color: #00264B;
+  font-size: 150%;
+  font-weight: bold;
+  text-align: left;
+}
+.results_table_filter .rowFilled{
+	/*background: #eee;*/
+}
+.results_table_filter .rowFilled:hover{
+ 
+}
+.results_table_filter .borderHeading{
+	
+	border-bottom: 1px solid #BBBBBB;
+}
+.results_table_filter .borderRow{
+	border-bottom: 1px solid #D7D7D7;
+}
+.results_table_filter
+    {
+        display: table;
+	width:100%;
+    }
+    
+    .results_table_filter .Heading
+    {
+        display: table-row;
+	/*font-weight: bold;*/
+	text-align: center;
+	font-size: 110%;
+	background: #00264B;
+	color: #F4F4F4;
+    }
+    
+    .results_table_filter .Row
+    {
+        display: table-row;
+	font-size: 110%;
+	color:#66656a;
+	background: #fff;
+    }
+    .results_table_filter .Cell
+    {
+        display: table-cell;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+  
+ .custom_reportsUniverse .textButton{
+    background-color: #00264B;
+    border-radius: 5px;
+    padding: 15px;
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    
+    color: white;
+    font-size: 300%;
+}
+.reportPrint{
+    position: absolute;
+    top:71px;
+    bottom: 0px;
+    width:100%;
+    z-index: 50000;
+     background: #fff;
+}
+.graphPrint{
+    position: absolute;
+    top:71px;
+    bottom: 0px;
+    width:100%;
+    z-index: 50000;
+    background: #fff;
+    text-align: center;
+}
+
+.graphPrint .containerg{
+    height: 600px;
+    margin-top: 50px;
+}
+
+
+.custom_reportsUniverse .blocker{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.custom_reportsUniverse .blocker .veil{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFF;
+    -moz-opacity:0.50;
+    opacity:0.50;
+    filter:alpha(opacity=50);
+    z-index: 50000;
+}
+.custom_reportsUniverse .blocker .loader{
+   position: relative;
+   width: 100px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 50001;
+   margin-top: 10%;
+}
+.custom_reportsUniverse .blocker .loader .label{
+   margin-top: 10px;
+   font-size: 200%;
+   color:  #00264B;
+   font-family: SoberanaSans_bold;
+}
+.custom_reportsUniverse .pagination{
+    position: absolute;
+    height: 40px;
+    width:100%;
+    background:#fff;
+    bottom: 0px;
+    border-top: 1px solid #d2d6d5;
+}
+.custom_reportsUniverse .blockPagination{
+    margin-top: 9px !important;
+}
+.custom_reportsUniverse .addFilter{
+    background: #00264B;
+    height: 40px;
+    width: 40px;
+    float: right;
+    right: -10px;
+    top: -40px;
+    position: relative;
+    cursor: pointer;
+}
+.custom_reportsUniverse .button:hover{
+    background-color: #006BA7;
+}
+.custom_reportsUniverse .button{
+    background-color: #636770;
+    margin-right: 5px;
+    border-radius: 5px;
+    margin-top: 2px;
+    padding: 5px;
+    /* -webkit-transform-origin: 50% 50%; */
+    -ms-transform-origin: 50% 50%;
+    /* transform-origin: 50% 50%; */
+    width: 100px;
+    color: white;
+    font-size: 120%;
+}
+.custom_reportsUniverse .pagination .pageItem{
+      display: inline-block;
+      cursor: pointer;
+  margin-left: 10px;
+  -webkit-border-radius: 150px 150px 150px 150px;
+  border-radius: 150px 150px 150px 150px;
+  width: 20px;
+  height: 20px;
+  background: #66656a;
+  position: relative;
+}
+.custom_reportsUniverse .pagination .pageRow{
+      display: inline-block;
+  margin-left: 15px;
+  position: relative;
+  top: 12px;
+  font-size: 120%;
+  cursor: pointer;
+}
+.custom_reportsUniverse .pageRow .icon{
+      display: inline-block;
+  position: relative;
+  top: 0px;
+}
+.custom_reportsUniverse .pageRow .label{
+      display: inline-block;
+  position: relative;
+  top: -8px;
+}
+.custom_reportsUniverse .pageRowLeft:hover .label{
+    color: #006BA7 !important;
+    font-weight: bold;
+}
+.custom_reportsUniverse .pageRowLeft:hover .icon{
+    
+    background-position: -533px -44px !important;
+}
+.custom_reportsUniverse .pageRowRight:hover .label{
+    color: #006BA7 !important;
+    font-weight: bold;
+}
+.custom_reportsUniverse .pageRowRight:hover .icon{
+   background-position: -515px -44px !important;
+}
+.custom_reportsUniverse .pagination .pageItem .label{
+    top: 4px;
+  margin-left: 0px;
+  color: #fff;
+  position: relative;
+}
+.custom_reportsUniverse .pagination .page_selected{
+    background: #006BA7 !important;
+    font-weight: bold;
+}
+.custom_reportsUniverse .totalRows{
+      position: absolute;
+  float: right;
+  top: 13px;
+  right: 15px;
+  font-size: 120%;
+  font-weight: bold;
+  color: #66656a;
+}

@@ -1,0 +1,49 @@
+.template_download{ background:url("img/download.png") top left no-repeat; }
+.tdw_plus{ 
+width: 27px;
+height: 27px;
+background-position: -33px -18px;
+}
+.tdw_close{ 
+width: 26px;
+height: 27px;
+background-position: -58px -20px;
+
+}
+.tdw_zip{
+width: 35px;
+height: 45px;
+background-position: -86px -2px;
+
+}
+
+.tdw_csv{
+width: 37px;
+height: 45px;
+background-position: -477px -2px;
+
+}
+.tdw_tracklog{
+    width: 25px;
+height: 25px;
+background-position:-290px -12px;
+}
+
+.tdw_charge{
+    width: 25px;
+height: 25px;
+background-position: -341px -12px;
+}
+
+.tdw_images{
+    width: 25px;
+height: 25px;
+background-position:-316px -12px;
+}
+.tdw_questionnaire{
+       width: 24px;
+    height: 25px;
+    background-position: -517px -12px;
+}
+
+

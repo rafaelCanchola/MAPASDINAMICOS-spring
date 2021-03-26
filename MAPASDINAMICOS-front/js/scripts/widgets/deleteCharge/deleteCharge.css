@@ -1,0 +1,284 @@
+@import url('template.css');
+
+.custom_deleteCharge{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 50000;
+}
+
+.custom_deleteCharge .veil_deleteCharge{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #000;
+    -moz-opacity:0.50;
+    opacity:0.50;
+    filter:alpha(opacity=50);
+    z-index: 1;
+}
+
+.custom_deleteCharge .modal_deleteCharge{
+    position: relative;
+  top: 80px;
+ 
+    z-index: 2;
+}
+
+.custom_deleteCharge .header_deleteCharge{
+    position:relative;border-bottom:2px solid #555555;height:45px;background:#177338;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+    border-top: 2px solid #BBBBBB;
+    border-left: 2px solid #BBBBBB;
+    border-right: 2px solid #BBBBBB;
+}
+
+.custom_deleteCharge .header_deleteCharge .label{
+    font-size: 140%;
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    color: white;
+}
+.custom_deleteCharge .container_update{
+    background:#fff;
+    position: relative;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 2px solid #BBBBBB;
+    border-left: 2px solid #BBBBBB;
+    border-right: 2px solid #BBBBBB;
+}
+.custom_deleteCharge .container_update .data_container{
+    position: absolute;
+    top:5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.custom_deleteCharge .sectionTabs{
+    background:#F2F1EE;width:100%;height:50px;
+}
+.custom_deleteCharge .addFileContainer{
+    top: 5px;
+    margin-top: 15px;
+    left: 5px;
+    right: 5px;
+    height: 50px;
+    border: 2px dashed #BBBBBB;
+}
+.custom_deleteCharge .addFileContainer .icon{
+     position: relative;
+    left: 10px;
+    float: left;
+    top: 11px;
+}
+.custom_deleteCharge .addFileContainer .label{
+    position: relative;
+    left: 25px;
+    top: 14px;
+    float: left;
+    right: 10px;
+    color: #9C9DA0;
+    font-size: 140%;
+}
+
+.custom_deleteCharge .fileSelected{
+    top: 5px;
+    margin-top: 15px;
+    left: 5px;
+    right: 5px;
+    height: 50px;
+    border: 2px dashed #BBBBBB;
+}
+.custom_deleteCharge .fileSelected .icon{
+   position: relative;
+    left: 10px;
+    float: left;
+    top: 2px;
+}
+.custom_deleteCharge .fileSelected .label{
+   position: relative;
+    left: 25px;
+    top: 14px;
+    float: left;
+    right: 10px;
+    color: #9C9DA0;
+    font-size: 140%;
+}
+.custom_deleteCharge .fileSelected .close{
+   position: relative;
+  right: 10px;
+  float: right;
+  top: 9px;
+}
+
+.custom_deleteCharge .textButton{
+    background-color: #177338;
+    border-radius: 5px;
+    padding: 15px;
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    color: white;
+    font-size: 250%;
+    width:145px;
+    position: relative;
+}
+.custom_deleteCharge .buttons_section{
+    position: relative;
+    bottom: 0px;
+    width:100%;
+    top:10px;
+}
+
+.custom_deleteCharge .msgErrorDownload{
+     position: relative;
+  bottom: 15px;
+  background: #D93A32;
+  margin-top: 10px;
+  padding: 7px;
+  -webkit-border-radius: 12px 12px 12px 12px;
+  border-radius: 12px 12px 12px 12px;
+  border: 1px solid #222;
+  width: 90%;
+  left: 6px;
+}
+.custom_deleteCharge .msgErrorDownload label{
+    color:white;
+   font-size: 140%;
+}
+
+.custom_deleteCharge .blocker{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.custom_deleteCharge .blocker .veil{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFF;
+    /*
+    -moz-opacity:0.50;
+    opacity:0.50;
+    filter:alpha(opacity=50);
+    */
+    z-index: 50000;
+}
+.custom_deleteCharge .blocker .loader{
+   position: relative;
+   width: 150px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 50001;
+   margin-top: 15%;
+}
+.custom_deleteCharge .blocker .loader .label{
+   margin-top: 10px;
+   font-size: 200%;
+   color:  #00264B;
+   font-family: SoberanaSans_bold;
+}
+
+
+.item_head_deleteCharge{
+    position: relative;
+    float: right;
+    height: 100%;
+    padding-left: 10px;
+    padding-right:10px;
+    
+}
+.item_head_deleteCharge_selected{
+    
+    cursor: pointer;
+    border-bottom: 3px solid #006BA7;
+}
+
+.item_head_deleteCharge_selected .label_head{
+    color:#006BA7;
+}
+
+.item_head_deleteCharge_selected .tu_charge{
+    background-position:-415px -12px !important;
+}
+.item_head_deleteCharge_selected .tu_tracklog{
+     background-position:-365px -12px !important;
+}
+.item_head_deleteCharge_selected .tu_images{
+     background-position:-390px -12px !important;
+}
+
+.item_head_deleteCharge:hover{ 
+    cursor: pointer;
+    border-bottom: 3px solid #006BA7;
+}
+.item_head_deleteCharge:hover .label_head{
+    color:#006BA7;
+}
+
+
+.item_head_deleteCharge .border_head{
+    position: absolute;
+    left:0px;
+    top:5px;
+    bottom: 5px;
+    width:1px;
+    background: #8E9091;
+}
+.item_head_deleteCharge .icon_head{
+    position: relative;
+    top:3px;
+}
+
+.item_head_deleteCharge .label_head{
+    position: relative;
+    bottom: -6px;
+    width: 99px;
+}
+
+.item_head_deleteCharge .label_head2{
+    position: relative;
+    bottom: -6px;
+    width: 159px;
+}
+
+.item_head_deleteCharge .label_user{
+    color: #006BA7;
+}
+
+#dch_charge:hover .tdch_charge{
+    background-position:-415px -12px !important;
+}
+#dch_tracklog:hover .tdch_tracklog{
+     background-position:-365px -12px !important;
+}
+#dch_images:hover .tdch_images{
+     background-position:-390px -12px !important;
+}
+
+.custom_deleteCharge #btnDeleteCharge{
+    display: inline-block;
+    position: absolute;
+    left:  10%;
+}
+.custom_deleteCharge #btnDeleteChargeCancel{
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+}

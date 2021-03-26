@@ -1,0 +1,473 @@
+.formQuestionnaire {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 3000;
+}
+
+.formQuestionnaire .fq_header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    z-index: 1;
+    background: white;
+    box-shadow: 1px 2px 10px 1px #555555;
+}
+
+.formQuestionnaire .fq_section {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    background: #F4F4F4;
+    border: 1px solid #d2d6d5;
+}
+
+.formQuestionnaire .option_item_q{
+    height: 100%;
+    border-right: 1px solid #d2d6d5;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    float: left;
+    color: #313131;
+    line-height: 55px;
+    font-size: 120%;
+}
+
+.formQuestionnaire .option_item_selected_q{
+    background: #E1E3E4;
+}
+
+.formQuestionnaire .option_item_back_q{
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    float: left;
+    color: #313131;
+    line-height: 55px;
+    font-size: 160%;
+    font-weight: bold;
+}
+
+.formQuestionnaire .icon_q{
+    position: relative;
+    top: 8px;
+}
+.formQuestionnaire .option_item_title_q{
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    float: left;
+    color: #313131;
+    line-height: 55px;
+    font-size: 160%;
+    font-weight: bold;
+}
+
+.formQuestionnaire .container_q{
+    position:absolute;left: 0px;right: 0px;bottom:0px;background:#E1E3E4;top:112px;
+}
+
+.formQuestionnaire .custom_menu_back_q {
+    background: url("img/back.png") top left no-repeat;
+    width: 27px;
+    height: 42px;
+    background-position: 0px 0px;
+}
+.formQuestionnaire .tabs_options{
+    background: #eee;
+    border-bottom: 1px solid #d2d6d5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+}
+.formQuestionnaire .background_form_q {
+    background: #F9F6EE;
+    position: absolute;
+    top: 51px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+.formQuestionnaire .subtitle_q{
+    position: relative;
+    border: 1px solid #F9F6EE;
+    text-align: center;
+    font-size: 150%;
+    padding-top: 30px;
+    color: #00264b;
+    text-shadow: blue;
+    font-weight: bold;
+    font-style: italic;
+}
+/****************/
+.formQuestionnaire .tabOption {
+    display: inline-block;
+    padding-top: 13px;
+    font-size: 125%;
+    margin-left: 20px;
+    padding-bottom: 5px;
+    color:#66656A;
+    cursor: pointer;
+}
+.formQuestionnaire .tabOption:hover{
+    border-bottom: 3px solid #2873b5;
+}
+.formQuestionnaire .tabOption.active{
+    border-bottom: 3px solid #006BA7;
+    color: #555555;
+    font-weight: bold;
+}
+.formQuestionnaire .tabContainer{
+    display: none;
+}
+.formQuestionnaire .tabContainer.active{
+    display: block !important;
+}
+
+.formQuestionnaire .Field{
+    position: relative;
+    border: 1px solid #F9F6EE;
+    padding-left: 10%;
+}
+.formQuestionnaire .Field .label{
+    color: #222;
+    float: left;
+    position: relative;
+    top: 15px;
+    font-size: 150%;
+}
+.formQuestionnaire .Field .textInput{
+    outline: 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #00264B;
+    border-radius: 2px;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width:80%;
+    margin-top: 35px;
+    display: block;
+    color:#222;
+}
+
+.formQuestionnaire .Field .containercheckbox{
+    outline: 0;
+    padding: 12px;
+    width: 80%;
+    margin-top: 35px;
+    display: block;
+}
+
+.formQuestionnaire .Field .containercheckbox label{
+    font-size: 140%;
+    margin-right: 25px;
+    text-orientation: inherit;
+    font-style: italic;
+    color: #00264b;
+    position: relative;
+    top: -8px;
+}
+
+.formQuestionnaire .Field .containercheckbox input{
+    height: 25px;
+    width: 25px;
+}
+
+.formQuestionnaire .Field .containerRadio{
+    outline: 0;
+    padding: 12px;
+    width: 80%;
+    margin-top: 35px;
+    display: block;
+}
+.formQuestionnaire input[format="curp"]{
+    text-transform: uppercase;
+}
+.formQuestionnaire input[format="fisica"]{
+    text-transform: uppercase;
+}
+.formQuestionnaire input[format="moral"]{
+    text-transform: uppercase;
+}
+.formQuestionnaire .Field .containerRadio label{
+    font-size: 140%;
+    margin-right: 25px;
+    text-orientation: inherit;
+    font-style: italic;
+    color: #00264b;
+    position: relative;
+    top: -8px;
+}
+
+.formQuestionnaire .Field .containerRadio input{
+    height: 25px;
+    width: 25px;
+}
+.formQuestionnaire .selectInput[disabled="disabled"] {
+    background:#eeeeee !important;
+}
+.formQuestionnaire .textInput[readonly=""]{
+    background: #eeeeee;
+}
+.formQuestionnaire .textInput[readonly="readonly"]{
+    background: #eeeeee;
+}
+.formQuestionnaire .formItems[readonly="readonly"] .itemForm .iconForm{
+    display: none;
+}
+.formQuestionnaire .Field .selectInput{
+    outline: 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #00264B;
+    border-radius: 2px;
+    background-color: transparent;
+    background-image: none;
+    width:83%;
+    margin-top: 35px;
+    display: block;
+    color:#222;
+}
+.formQuestionnaire .Field .textAreaInput{
+    outline: 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #00264B;
+    border-radius: 2px;
+    background-color: transparent;
+    background-image: none;
+    width:80%;
+    margin-top: 35px;
+    display: block;
+    color:#222;
+    height: 80px;
+}
+.formQuestionnaire #edit_form_q{
+    display:none;
+}
+.formQuestionnaire .Field .formItems{
+    border: 2px solid #00264B;
+    border-radius: 2px;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 82%;
+    margin-top: 38px;
+    display: block;
+    color: #222;
+    overflow: auto;
+    max-height: 300px;
+    overflow-x: hidden;
+
+}
+.formQuestionnaire .itemForm{
+    outline: 0;
+    width: 100%;
+    border-bottom: 1px solid #00264B;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    /* margin-top: 35px; */
+    display: block;
+    color: #222;
+    position: relative;
+}
+.formQuestionnaire .itemForm:hover{
+    background: #eeeeee;
+}
+.formQuestionnaire .itemForm:hover .labelForm{
+    color: #00264b;
+    font-weight: bold;
+}
+.formQuestionnaire .itemForm .labelForm{
+    padding: 10px;
+    font: 13.3333px Arial;
+}
+.formQuestionnaire .itemForm .iconForm{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+.formQuestionnaire .Field .badInput{
+  background-color: #FF6961 !important;
+}
+
+.formQuestionnaire .buttonCircle{
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    background: #006ba7;
+    color: #fff;
+    border: 0px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(130,130,130,1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(130,130,130,1);
+    box-shadow: 3px 3px 5px 0px rgba(130,130,130,1);
+    cursor: pointer;
+}
+
+.formQuestionnaire .ButtonSection{
+     position: absolute;
+    bottom: 30px;
+    right: 40px;
+    float: right;
+    width: 70px;
+}
+.formQuestionnaire .ButtonSection button:last-child{
+    margin-top: 10px;
+}
+.formQuestionnaire .blocker{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.formQuestionnaire .blocker .veil{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFF;
+    -moz-opacity:0.50;
+    opacity:0.50;
+    filter:alpha(opacity=50);
+    z-index: 50000;
+}
+.formQuestionnaire .blocker .loader{
+   position: relative;
+   width: 100px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 50001;
+   margin-top: 40%;
+}
+.formQuestionnaire .blocker .loader .label{
+   margin-top: 10px;
+   font-size: 200%;
+   color:  #00264B;
+   font-family: SoberanaSans_bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.background_form .ButtonSection .textButton{
+    background-color: #00264B;
+    border-radius: 5px;
+    padding: 15px;
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    width: 20%;
+    color: white;
+    font-size: 300%;
+}
+
+.form_message{
+    position:absolute;
+    top:30%;
+    left: 30%;
+    right: 30%;
+    bottom: 30%;
+    z-index: 5001;
+    border: 1px solid #222;
+}
+.form_message .header{
+    position: absolute;
+    height: 30px;
+    width:100%;
+    
+}
+.form_message .type_info{
+    background: #00264B;
+    color:#FFF;
+    
+}
+.form_message .type_error{
+    background: #C5002E;
+    color:#FFF;
+    
+}
+.form_message .header .close{
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    
+}
+.form_message .header  .label{
+    font-size: 200%;
+    margin-left: 12px;
+    margin-top: 2px;
+}
+.form_message .container{
+	position: absolute;
+	top: 30px;
+	width: 100%;
+	bottom: 0px;
+	background: #FFF;
+	overflow-y: auto;
+	overflow-x: hidden;
+	font-size: 120%;
+}
+.form_message_veil{
+    position:absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    -moz-opacity:0.80;
+    opacity:0.80;
+    filter:alpha(opacity=80);
+    background: #eee;
+    z-index: 5000;
+}
+.form_message .item_error{
+    position: relative;
+    left:10px;
+    right: 10px;
+    margin-top:15px;
+}
+.template_custom_form_close{
+	display:block;background-image:url(../img/close.png);overflow:hidden;width:24px; height:24px; background-repeat:no-repeat;
+}
+#ui-datepicker-div{
+    font-size: 130%;
+}
+
+.template_formQ{ background:url("img/formQuestionnaire.png") top left no-repeat; }
+.tfq_edit{ width:23px; height:23px; background-position:-29px -10px; }
+.tfq_info{ width:22px; height:22px; background-position:-51px -11px; }
+.tfq_delete{ width:20px; height:20px; background-position:-92px -11px; }
+.tfq_plus{ width:20px; height:20px; background-position:-72px -12px; }

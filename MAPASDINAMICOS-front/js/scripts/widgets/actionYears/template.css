@@ -1,0 +1,24 @@
+.template_actionYears{ background:url("img/actionYears.png") top left no-repeat; }
+
+.tay_deleteCharge{    width: 21px;
+    height: 21px;
+    background-position: -100px -10px;
+}
+.tay_download{
+    width: 21px;
+    height: 21px;
+    background-position: -78px -10px;}
+
+
+.tay_check{
+    width:21px; height:21px; background-position:-28px -7px;
+}
+
+.tay_notcheck{
+    width: 21px;
+    height: 21px;
+    background-position: -6px -7px;
+}
+
+
+

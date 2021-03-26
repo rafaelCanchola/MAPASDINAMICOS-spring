@@ -1,0 +1,447 @@
+@import url('template.css');
+.custom_actionYears{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.custom_actionYears .item_user{
+    position: relative;
+    border-bottom: 2px solid #555555;
+    height: 47px;
+    width: 300px;
+    left: 0px;
+    background: #00264B;
+    color:#fff;
+}
+.custom_actionYears .item_user{
+    background: #00264B !important;
+}
+
+.custom_actionYears .userTools{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+.custom_actionYears .userTools .icon_upload{
+    float: right;
+    top: 2px;
+    position: relative;
+    margin-right: 8px;
+}
+
+.custom_actionYears .userTools .icon_download{
+    float: right;
+    top: 2px;
+    position: relative;
+    margin-right: 8px;
+}
+
+.custom_actionYears .item_user .user_alias{
+    font-size: 140%;
+    position: absolute;
+    left: 30px;
+    top: 13px;
+}
+
+.custom_actionYears .item_user .user_role{
+    font-size: 110%;
+    position: absolute;
+    left: 30px;
+    top: 26px;
+    color: white;
+}
+
+.custom_actionYears .item_user .user_charge{
+    position:absolute;right:5px;border:1px solid black;top:7px;
+    -webkit-border-radius: 20px 20px 20px 20px;border-radius: 20px 20px 20px 20px;padding:3px;font-size:120%;
+}
+
+.custom_actionYears .item_user .user_progress{
+    position: absolute;
+    left: 20px;
+    height: 3px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.custom_actionYears .item_user .user_back{
+    position:absolute;left:2px;top:10px;
+}
+
+.custom_actionYears .data_blocks{
+    position: absolute;
+    top:49px;
+    bottom: 3px;
+    left:0px;
+    right: 0px;
+}
+.icon_input {
+    display: inline-block;
+position: relative;
+top: 5px;
+}
+.custom_actionYears .data_blocks .options{
+    position: absolute;
+    top: 0px;
+    height: 45px;
+    left: 0px;
+    right: 0px;
+    background: #F4F4F4;
+    box-shadow: 1px 2px 10px 1px #555555;
+}
+
+.custom_actionYears .data_blocks .options .option_selected_delivered{
+    background: #E1E3E4 !important;
+}
+.custom_actionYears .data_blocks .options .label{
+    position: absolute;
+    /* top: 20px; */
+    width: 100%;
+    line-height: 35px;
+}
+.custom_actionYears .data_blocks .options .total{
+    position: absolute;
+    /* top: 20px; */
+    width: 100%;
+    line-height: 60px;
+}
+.custom_actionYears .data_blocks .options #dataValidated{
+    position: relative;
+    width:99px;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid #BBBBBB;
+    border-bottom: 1px solid #BBBBBB;
+    float: left;
+}
+.custom_actionYears .data_blocks .options #dataDelivered{
+    position: relative;
+    width:98px;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid #BBBBBB;
+    border-bottom: 1px solid #BBBBBB;
+    float: left;
+}
+.custom_actionYears .data_blocks .options #dataByDelivering{
+    position: relative;
+    width:99px;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid #BBBBBB;
+    border-bottom:1px solid #BBBBBB;
+    float: left;
+}
+
+.custom_actionYears .data_blocks .tools{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 46px;
+    overflow: auto;
+    background: #F4F4F4;
+    box-shadow: 1px 2px 10px 1px #555555;
+    overflow: hidden;
+}
+
+.custom_actionYears .tools .allItems{
+    position: relative;
+    left: 15px;
+    top: 9px;
+}
+
+.custom_actionYears .tools .allItems .inputAll{
+    
+}
+.custom_actionYears .tools .allItems .label{
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 120%;
+}
+.custom_actionYears .tools .button_deleteCharge{
+        
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+.custom_actionYears .tools .button_download{
+       
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+.custom_actionYears .data_blocks .list_data{
+    position: absolute;
+    top: 46px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+}
+
+.custom_actionYears .data_blocks .list_data .rows{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: auto;
+}
+.custom_actionYears .data_blocks .list_data .rowsFilter{
+    top: 45px !important;
+}
+.custom_actionYears .data_blocks .list_data .rowsValidation{
+    bottom: 45px !important;
+}
+.custom_actionYears .filter{
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    right: 0px;
+    height: 43px;
+}
+.custom_actionYears .filter .textFilter{
+    outline: 0;
+    padding: 12px;
+    width: 269px;
+    border: 2px solid #00264B;
+    border-radius: 2px;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #222;
+}
+.custom_actionYears .filter .buttonFilter{
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    background: #eee;
+    width: 41px;
+    height: 39px;
+    cursor: pointer;
+}
+.custom_actionYears .filter .buttonDelete{
+        position: absolute;
+    top: 9px;
+    right: 51px;
+    cursor: pointer;
+}
+.custom_actionYears .filter .buttonFilter .icon{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+.custom_actionYears .section_tools{
+   position: absolute;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #E1E3E4;
+    border-top: 1px solid #BBBBBB;
+}
+
+.custom_actionYears .section_tools .assignTools{
+   position: absolute;
+    top: 3px;
+    left: 5px;
+    height: 42px;
+    width: 56px;
+    background: #BBBBBB;
+    border: 1px solid #555;
+}
+
+.custom_actionYears .section_tools .assignTools .otherOptions{
+    position: absolute;
+    width: 43px;
+    right: -1px;
+    /* height: 200px; */
+    background: #fff;
+    top: -86px;
+    border: 1px solid #555; 
+    }
+
+.custom_actionYears .section_tools .assignTools .otherOptions .itemTool{
+    padding: 2px;
+}
+.custom_actionYears .section_tools .assignTools .otherOptions .itemTool:hover{
+    background: #F4F4F4 !important;
+}
+
+.assignTools .selector{
+    left:0px;width:13px;height:100%;background:#BBBBBB;position: absolute;float: left;
+}
+.assignTools .tool_selected{
+    left:13px;right:0px;height:100%;background:#fff;float: left;position: absolute;
+}
+.assignTools .tool_selected_active{
+    
+}
+.custom_actionYears .section_tools .assingButton{
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    /* height: 20px; */
+    /* width: 20px; */
+}
+.custom_actionYears .section_tools .cancelButton{
+    position: absolute;
+    top: 5px;
+    right: 120px;
+    /* height: 20px; */
+    /* width: 20px; */
+}
+.custom_actionYears .section_tools .button{
+   
+    background-color: #00264B;
+    border-radius: 5px;
+    padding: 7px;
+    /* -webkit-transform-origin: 50% 50%; */
+    -ms-transform-origin: 50% 50%;
+    /* transform-origin: 50% 50%; */
+    width: 100px;
+    color: white;
+    font-size: 120%;
+
+}
+
+
+/**/
+.years_table_results{
+        display: table;
+	width:100%;
+        margin-top: 3px;
+}
+.years_table_results .rowFilled{
+	background: #F4F4F4;
+}
+.years_table_results .row_selected{
+	background: #F4F4F4;
+}
+.years_table_results .borderHeading{
+	border-top: 1px solid #222;
+	border-bottom: 1px solid #222;
+}
+.years_table_results .borderRow{
+	border-bottom: 1px solid #BBBBBB;
+	padding-bottom: 10px !important;
+}
+
+    
+.years_table_results .Heading{
+        display: table-row;
+	font-weight: bold;
+	text-align: center;
+	font-size: 130%;
+	background: #00264B;
+	color: white;
+}
+    
+.years_table_results .Row{
+        display: table-row;
+	font-size: 120%;
+	cursor: pointer;
+}
+
+.years_table_results .Row:hover{
+    background: #E1E3E4 !important;
+}
+.years_table_results .Cell{
+        display: table-cell;
+        border-width: thin;
+        padding: 5px;
+}
+
+
+.years_table_results .text_center{
+    text-align: center;
+    width: 40px;
+    padding-right: 0px;
+}
+.custom_actionYears .dataDelivered_data_validation{
+    position: absolute;
+    height:44px;
+    width:100%;
+    bottom: 0px;
+    background:#E1E3E4;
+    border-top:1px solid #BBBBBB;
+}    
+.custom_actionYears .textButton{
+    background-color: #00264B;
+    border-radius: 5px;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top:7px;
+}
+
+.years_table_results .optionTracklog{
+    position: relative;
+    top: 2px;
+    float: right;
+    right: 0px;
+    display: inline;
+}
+.years_table_results .optionRow{
+    position: relative;
+    top: 2px;
+    float: right;
+    right: 0px;
+    display: inline;
+}
+
+.custom_actionYears .blocker{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.custom_actionYears .blocker .veil{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFF;
+    -moz-opacity:0.50;
+    opacity:0.50;
+    filter:alpha(opacity=50);
+    z-index: 50000;
+}
+.custom_actionYears .blocker .loader{
+   position: relative;
+   width: 100px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   z-index: 50001;
+   margin-top: 50%;
+}
+.custom_actionYears .blocker .loader .label{
+   margin-top: 10px;
+   font-size: 200%;
+   color:  #00264B;
+   font-family: SoberanaSans_bold;
+}
+
+.custom_actionYears .msgError{
+   position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 46px;
+    overflow: auto;
+    background: #F4F4F4;
+    display: none;
+    text-align: center;
+}
+.custom_actionYears .msgError .label{
+    font-size: 130%;
+    margin-top: 13px;
+}
