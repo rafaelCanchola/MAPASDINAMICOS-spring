@@ -2,7 +2,6 @@ package com.siap.dti.mapasdinamicos.models.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,7 +28,6 @@ public class Punto implements Serializable{
 	@Setter @Getter
 	private Long id;
 	
-	@Column(columnDefinition="geometry(MultiPolygon,4326)")
 	@Setter @Getter
     private Geometry the_geom;
 	

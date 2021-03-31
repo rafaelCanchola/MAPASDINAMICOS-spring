@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-import com.vividsolutions.jts.geom.Geometry;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -137,12 +135,11 @@ private static final long serialVersionUID = 1L;
 	@Setter @Getter
     private Integer cvegeo;
     
-    @Column(columnDefinition="geometry(MultiPolygon,4326)")
-	@Setter @Getter
-    private Geometry x;
-    @Column(columnDefinition="geometry(MultiPolygon,4326)")
-	@Setter @Getter
-    private Geometry y;
+    @Setter @Getter
+    private Double x;
+    
+    @Setter @Getter
+    private Double y;
 
 	@Setter @Getter
     private Double shapeleng;
