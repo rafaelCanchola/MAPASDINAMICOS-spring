@@ -314,13 +314,15 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	dataPredios = {};
 	for(var x in data){
 		var i = data[x];
-		var f = new OpenLayers.Format.WKT('EPSG:4326').read(i.wkt);
-		f.geometry = f.geometry.transform('EPSG:4326','EPSG:900913');
+		var f = new OpenLayers.Format.WKT('EPSG:3857').read(i.the_geom);
+
+		console.log(f);
 		f['info']=i;
 		f['info'].statusbk= i.status+0;
 		f['info'].status = ((dataSelected)&&(dataSelected['item'+i.id]))?6:i.status;
-		
+
 		dataPredios['P'+i.id+'i']=f;
+
 		features.push(f);
 	    
 	}
@@ -399,7 +401,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		var r= {
 			statusCode:{
 				200: function (json,estatus){
-					addPredios(json.data.features);
+					addPredios(json);
 				},
 				400: function(){
 					showMessage(msg);
@@ -502,8 +504,8 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	
 	var config = mappingConfig;
         var e= Map.getExtent();
-	var punto = new OpenLayers.LonLat(e.left,e.bottom).transform(mapProjection,config.displayProjection);
-	var punto2 = new OpenLayers.LonLat(e.right,e.top).transform(mapProjection,config.displayProjection);
+	var punto = new OpenLayers.LonLat(e.left,e.bottom)//.transform(mapProjection,config.displayProjection);
+	var punto2 = new OpenLayers.LonLat(e.right,e.top)//.transform(mapProjection,config.displayProjection);
 	
 	try {
 	    var filter = $(".app_bottom_section_predios").reports('getFilter');
@@ -512,7 +514,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	}
 	filter = (typeof filter === 'object')?'':filter;
 	requestPredios({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
-	request({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
+	//request({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
     }
     var clockPrediosForMap = null;
     

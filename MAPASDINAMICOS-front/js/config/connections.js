@@ -249,9 +249,8 @@ define([], function () {
         features: {
             getPredios: {
                 url: 'http://localhost:8080/api/Predios?',
-                type: 'POST',
-                dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded'
+                type: 'GET',
+                dataType: 'json'
             },
             getPolygons: {
                 url: 'http://localhost:8080/api/Polygons?',
@@ -279,7 +278,6 @@ define([], function () {
                 url: 'http://localhost:8080/api/Predios?',
                 type: 'POST',
                 dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded'
             }
         },
         notification: {
