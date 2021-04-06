@@ -28,7 +28,4 @@ public class Ejercicio implements Serializable{
 	@Setter @Getter
 	private boolean habilitado;
 	
-	
-	
-
 }

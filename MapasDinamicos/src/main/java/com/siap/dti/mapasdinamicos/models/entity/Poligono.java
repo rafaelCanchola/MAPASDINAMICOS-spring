@@ -43,7 +43,7 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(columnDefinition="text")
 	@Setter @Getter
-	private String idddr;
+	private Integer idddr;
 	
 	@Column(columnDefinition="text")
 	@Setter @Getter

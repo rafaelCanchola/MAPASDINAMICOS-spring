@@ -34,12 +34,6 @@ public class UsuarioRestController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
-	@Autowired
-	private IPoligonoService poligonoService;
-	@Autowired
-	private IPuntoService puntoService;
-	
-	private GeometryFactory gf = new GeometryFactory(new PrecisionModel(PrecisionModel.FLOATING),3857);
 	
 	@GetMapping("/usuarios")
 	public List<Usuario> index(){
@@ -64,54 +58,5 @@ public class UsuarioRestController {
 			}
 		}
 	}
-	
-	@GetMapping("/Predios")
-	public ResponseEntity<List<PuntoJson>> predios(@RequestParam String filter, @RequestParam String user, @RequestParam Double xmin,@RequestParam Double xmax, @RequestParam Double ymin, @RequestParam Double ymax){
-		Envelope en = new Envelope(xmin,xmax,ymin,ymax);
-		List<Punto> fa = puntoService.findAll();
-		List<PuntoJson> pj = new ArrayList<PuntoJson>();
-		for(Punto p : fa) {
-			if(en.intersects(p.getPoligono().getX(),p.getPoligono().getY())) {
-				System.out.println("Entering");
-				pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono()));
-			}else {
-				System.out.println("Errorrrrrrrr");
-			}
-		}
-		return ResponseEntity.ok(pj);
-	}
-	
-	@PostMapping("/insertpoli")
-	public ResponseEntity<PuntoJson> insertPoli(@RequestBody Poligono poligono){
-		Poligono jpaPoligono = poligonoService.save(poligono);
-		Punto nuevoPunto = new Punto();
-		Point punto = gf.createPoint(new Coordinate(poligono.getX(),poligono.getY()));
-		nuevoPunto.setThe_geom(punto);
-		nuevoPunto.setPoligono(jpaPoligono);
-		Punto jpaPunto = puntoService.save(nuevoPunto);
-		return ResponseEntity.ok(new PuntoJson(jpaPunto.getId(),jpaPunto.getThe_geom().toString(),jpaPunto.getPoligono()));
-	}
-	
-	@GetMapping("/poliall")
-	public ResponseEntity<List<PuntoJson>> allpoints(){
-		List<Punto> fa = puntoService.findAll();
-		List<PuntoJson> pj = new ArrayList<PuntoJson>();
-		for(Punto p : fa) {
-			pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono()));
-		}
-		return ResponseEntity.ok(pj);
-	}
-	@GetMapping("/Years")
-	//public ResponseEntity<List<Usuario>> years(){
-		//return ResponseEntity.notFound().build();
-	//	return ResponseEntity.ok(usuarioService.findAll());
-	//	
-	//}	
-	public ResponseEntity<Object> years(){
-		//return ResponseEntity.notFound().build();
-		return ResponseEntity.noContent().build();
-		
-	}
-
 
 }
