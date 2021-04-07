@@ -16,12 +16,23 @@
 	<description>Mapas Dinamicos de Cultivos</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<geotools.version>26-SNAPSHOT</geotools.version>
 	</properties>
 	<repositories>
 		<repository>
-            <id>osgeo-alt</id>
-            <url>https://repo.osgeo.org/repository/release/</url>
-        </repository>
+        <id>osgeo</id>
+        <name>OSGeo Release Repository</name>
+        <url>https://repo.osgeo.org/repository/release/</url>
+        <snapshots><enabled>false</enabled></snapshots>
+        <releases><enabled>true</enabled></releases>
+      </repository>
+      <repository>
+        <id>osgeo-snapshot</id>
+        <name>OSGeo Snapshot Repository</name>
+        <url>https://repo.osgeo.org/repository/snapshot/</url>
+        <snapshots><enabled>true</enabled></snapshots>
+        <releases><enabled>false</enabled></releases>
+      </repository>
 	</repositories>
 	<dependencies>
 		<dependency>
@@ -69,23 +80,23 @@
 		</dependency>
 		<dependency>
             <groupId>org.geotools</groupId>
-            <artifactId>gt-api</artifactId>
-            <version>9.2</version>
+            <artifactId>gt-main</artifactId>
+            <version>${geotools.version}</version>
         </dependency>
          <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-shapefile</artifactId>
-            <version>9.2</version>
+            <version>${geotools.version}</version>
         </dependency>
         <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-swing</artifactId>
-            <version>9.2</version>
+            <version>${geotools.version}</version>
         </dependency>
         <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-epsg-hsql</artifactId>
-            <version>9.2</version>
+            <version>${geotools.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
