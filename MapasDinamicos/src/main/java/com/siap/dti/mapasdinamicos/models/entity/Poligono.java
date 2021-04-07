@@ -41,7 +41,6 @@ private static final long serialVersionUID = 1L;
 	@Setter @Getter
 	private String nomestado;
 	
-	@Column(columnDefinition="text")
 	@Setter @Getter
 	private Long idddr;
 	
@@ -116,24 +115,25 @@ private static final long serialVersionUID = 1L;
 	@Setter @Getter
     private Double valorprodu;
 
+	@Column(columnDefinition="text")
 	@Setter @Getter
-    private Long cveent;
+    private String cveent;
     
     @Column(columnDefinition="text")
-
 	@Setter @Getter
     private String noment;
 
+    @Column(columnDefinition="text")
 	@Setter @Getter
-    private Long cvemun;
+    private String cvemun;
     
     @Column(columnDefinition="text")
-
 	@Setter @Getter
     private String nomgeo;
 
+    @Column(columnDefinition="text")
 	@Setter @Getter
-    private Long cvegeo;
+    private String cvegeo;
     
     @Setter @Getter
     private Double x;
