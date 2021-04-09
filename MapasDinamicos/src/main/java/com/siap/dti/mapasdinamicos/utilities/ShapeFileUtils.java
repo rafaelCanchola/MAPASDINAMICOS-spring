@@ -77,6 +77,8 @@ public class ShapeFileUtils {
                 
                 poligonoIterator.add(poligono);
                 }
+            featureIterator.close();
+            
             }
 		return poligonoIterator;
 		}
