@@ -1,5 +1,5 @@
 /**
- * years.js Libreria para el despliegue de la información referente a los años
+ * years.js Libreria para el despliegue de la informaciï¿½n referente a los aï¿½os
  * 
  */
 define(["validator","connections","structure","features","graph","restrictions","Alert"], function(validator,connections,structure,features,graph,restrictions,Alert){
@@ -31,16 +31,15 @@ $.widget( "custom.years", {
                     this.totalYears={};
                     for(var x in years){
                               var i = years[x];
-                              var id = 'y'+i.year;
+                              var id = 'y'+i.anio;
                               this.totalYears[id]=i;
-                              var color = (i.enabled)?'#006BA7':'#8E9091';
+                              var color = (i.habilitado)?'#006BA7':'#8E9091';
                               var controls = '';
                               if (process=='consult') {
                                        controls = '<div class="year_tools">'+
-                                                            ((i.charge.delete)?'<div class="year_action year_deleteCharge" _title="Eliminar carga" title="Eliminar carga" year="'+id+'"  action="deleteCharge"><div class="template_years ty_deleteCgarge"></div></div>':'')+
-                                                            ((i.charge.download)?'<div class="year_action year_download" _title="Descargar carga" title="Descargar carga" year="'+id+'" action="download"><div class="template_years ty_download"></div></div>':'')+
-                                                            ((i.charge.upload)? '<div class="year_action year_upload" _title="Subir carga" title="Subir carga" year="'+id+'" action="upload"><div class="template_years ty_upload"></div></div>':'')+
-                                                            
+                                                            '<div class="year_action year_deleteCharge" _title="Eliminar carga" title="Eliminar carga" year="'+id+'"  action="deleteCharge"><div class="template_years ty_deleteCgarge"></div></div>'+
+                                                            '<div class="year_action year_download" _title="Descargar carga" title="Descargar carga" year="'+id+'" action="download"><div class="template_years ty_download"></div></div>'+
+                                                            '<div class="year_action year_upload" _title="Subir carga" title="Subir carga" year="'+id+'" action="upload"><div class="template_years ty_upload"></div></div>'+
                                                   '</div>';
                                         
                               }
@@ -53,7 +52,7 @@ $.widget( "custom.years", {
                               }
                               chain+=   '<div id="itemu'+x+'" class="item_year">'+
                                                   '<div class="year_color" style="background:'+color+';"></div>'+
-                                                  '<div class="year_alias">Ejercicio '+i.year+'</div>'+
+                                                  '<div class="year_alias">Ejercicio '+i.anio+'</div>'+
                                                   '<div class="year_progress" style="background:'+color+';"></div>'+
                                                   controls+
                                         '</div>';
@@ -65,7 +64,7 @@ $.widget( "custom.years", {
                     var chain='';
                               var i = this.options.userActive;
                               var nom = i.username;
-                              var role = validator.getRol(i.roleId);
+                              var role = validator.getRol(i.rol.id);
                               var id = "user_"+i.id+"i";
                               var state = ((!i.state)||(i.state==''))?'':' '+restrictions.states['e'+i.state].alias;
                               chain+='<div id="'+id+'" class="item_year_selected">'+
@@ -124,32 +123,30 @@ $.widget( "custom.years", {
                                         this.getBlocker()+
                                '<div>';
                     this.element.html(chain);
-                    obj.getYearsRequest({action:'getall'});
+                    obj.getYearsRequest();
 	  },
           getYearsRequest:function(params){
                     var obj = this;
                     var msg = 'Servicio no disponible intente m&aacute;s tarde';
                     var r= {
-                            success:function(json,estatus){
-                              if(json){
-                                    if (json.response.sucessfull){
-                                                  msg=null;
-                                                  obj.getYears(json.data);
-                                        
-                                    }else{
-                                        msg=json.response.message;
-                                    }
-                              }
-                              
+                        statusCode:{
+                            200: function (json,estatus){
+                                obj.hideSpinner();
+                                obj.getYears(json);
                             },
+                            400: function(){
+                                showMessage('Error en la informaciÃ³n');
+                                obj.hideSpinner();
+                            },
+                            403: function (){
+                                showMessage('Usuario o ContraseÃ±a incorrectos');
+                                obj.hideSpinner();
+                            }
+                        },
                             beforeSend: function(solicitudAJAX) {
                               obj.showSpinner();
                             },
-                            error: function(solicitudAJAX,errorDescripcion,errorExcepcion) {
-                            },
-                            complete: function(solicitudAJAX,estatus) {
-                              obj.hideSpinner();
-                            }
+
                     };
                     r = $.extend(r, connections.years.getAll);
                     r.data = params;
@@ -189,7 +186,7 @@ $.widget( "custom.years", {
                                                   $(this).click(function(event){
                                                             var action = $(this).attr('action');
                                                             var id = $(this).attr('year');
-                                                            var year = obj.totalYears[id].year;
+                                                            var year = obj.totalYears[id].anio;
                                                             var title = $(this).attr('_title');
                                                             if (action=='delete') {
                                                                       var params = {action:'clean',user:obj.options.userActive.id,currentyear:year};
@@ -231,7 +228,7 @@ $.widget( "custom.years", {
                                         $(this).click(function(event){
                                                   var action = $(this).attr('action');
                                                   var id = $(this).attr('year');
-                                                  var year = obj.totalYears[id].year;
+                                                  var year = obj.totalYears[id].anio;
                                                   switch (action) {
                                                             case 'upload': 
                                                                       $('body').upload({userActive:obj.options.userActive,info:'year',data:{year:year,user:obj.options.userActive,width:370,height:225}});

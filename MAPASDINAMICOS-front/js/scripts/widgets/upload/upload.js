@@ -118,19 +118,12 @@ $.widget( "custom.upload", {
                                                             
                                                   '</div>'
                                                   :'<div class="sectionTabs">'+
-                                                            '<div id="up_csv" status="close" class="item_head_upload" type="csv" align="center">'+
-                                                                      '<div class="border_head"></div>'+
-                                                                      '<div class="icon_head">'+
-                                                                          '<div class="template_upload tu_charge"></div>'+
-                                                                      '</div>'+
-                                                                      '<div class="label_head2">Universo</div>'+
-                                                            '</div>'+
                                                             '<div id="up_charge" status="close" class="item_head_upload" type="charge" align="center">'+
                                                                       '<div class="border_head"></div>'+
                                                                       '<div class="icon_head">'+
                                                                           '<div class="template_upload tu_charge"></div>'+
                                                                       '</div>'+
-                                                                      '<div class="label_head2">Muestra</div>'+
+                                                                      '<div class="label_head4">Muestra</div>'+
                                                             '</div>'+
                                                             
                                                   '</div>'
@@ -207,6 +200,8 @@ $.widget( "custom.upload", {
                     var format = 'zip';
                     return format;
           },
+
+
           events:function(){
                     var obj=this;
                     obj.selectOption('up_charge');
@@ -232,11 +227,10 @@ $.widget( "custom.upload", {
                               type: obj.typeSelected,
                               currentyear: currentYear,
                               useractive:obj.options.userActive
-                        },      
-                        dataType: (obj.options.info=='user')?connections.charge.upload.dataType:connections.years.upload.dataType,
+                        },
+                        //dataType: (obj.options.info=='user')?connections.charge.upload.dataType:connections.years.upload.dataType,
                         //contentType: "application/json; charset=utf-8",
                         add: function (e, data) {
-                            
                             var d = data.files[0];
                             var nameFile = (typeof(d.name)!="undefined")?d.name:d.fileName;
                             var nameFileLower = nameFile.toLowerCase();
@@ -254,13 +248,45 @@ $.widget( "custom.upload", {
                                 obj.showError('Archivo no valido');
                             }
                         }
-                    });
-                     
-                    $('#'+idForm).bind('fileuploadsend', function (e, data) {
-                       obj.showSpinner();
-                    });
+                    }).on('fileuploadsend',function(e,data){
+                        obj.showSpinner();
+                    }).on('fileuploaddone',function(e,data){
+                        obj.hideSpinner();
+                        obj.hide();
+                        if (obj.options.info=='user') {
+                            features.updatePredios();
+                            $(".app_left_section").deliveredCharge({userActive:obj.options.userActive,data:{active:obj.options.data.user}});
+                        }else{
+                            features.updatePredios();
+                            $('.app_left_section_years').years('update');
+                            structure.updateListPredios(true);
+                            structure.updateUniverse();
+                        }
+                        var typeMessage = (r.response.error)?'error':'notification';
+                        var label = (obj.typeSelected=='csv')?"El universo ha sido guardado":"La carga ha sido guardada";
+                        var messages = [label+' satisfactoriamente'];
+                        if (typeMessage=='error') {
+                            messages=[];
+                            messages = r.response.error;
+                            messages.unshift(r.response.message);
+                        }
+                        Alert.show({
+                            title:'Notificaci&oacute;n',
+                            type:typeMessage,
+                            messages:messages,
+                            content:chain,
+                            buttons:[{label:'Cerrar'}]
+                        });
+
+                    }).on('fileuploadfail',function (e,data){
+                        obj.hideSpinner();
+                        obj.showError("Ocurrio un error al subir el archivo");
+                        }
+                    )
+                    ;
+
                     $('#'+idForm).bind('fileuploaddone', function (e, data) {
-                        obj.hideSpinner();      
+                        obj.hideSpinner();
                         var r = data.result;
                         if(r.response.sucessfull){
                               obj.hide();

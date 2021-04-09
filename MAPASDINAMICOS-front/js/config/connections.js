@@ -6,7 +6,7 @@ define([], function () {
     return {
         years: {
             getAll: {
-                url: 'http://localhost:8080/api/Years?',
+                url: 'http://localhost:8080/api/years?',
                 type: 'GET',
                 dataType: 'json',
                 contentType: 'application/json'
@@ -42,9 +42,9 @@ define([], function () {
                 contentType: 'application/json'
             },
             upload: {
-                url: 'http://localhost:8080/api/UploadChargeYear?',
+                url: 'http://localhost:8080/api/uploadcharge?',
                 type: 'POST',
-                dataType: 'json',
+                dataType: 'raw',
                 contentType: 'application/json'
             },
             download: {
@@ -248,7 +248,7 @@ define([], function () {
         },
         features: {
             getPredios: {
-                url: 'http://localhost:8080/api/Predios?',
+                url: 'http://localhost:8080/api/predios?',
                 type: 'GET',
                 dataType: 'json'
             },
