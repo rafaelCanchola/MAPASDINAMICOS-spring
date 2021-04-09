@@ -31,7 +31,6 @@ import com.siap.dti.mapasdinamicos.utilities.ShapeFileUtils;
 import com.siap.dti.mapasdinamicos.utilities.UncompressorZIP;
 import com.siap.dti.mapasdinamicos.utilities.Utils;
 
-@CrossOrigin(origins= {"http://localhost"})
 @RestController
 @RequestMapping("/api")
 public class PuntoRestController {
@@ -46,7 +45,7 @@ public class PuntoRestController {
 	
 	private GeometryFactory gf = new GeometryFactory(new PrecisionModel(PrecisionModel.FLOATING),3857);
 	
-	@GetMapping("/Predios")
+	@GetMapping("/predios")
 	public ResponseEntity<List<PuntoJson>> Predios(@RequestParam String filter, @RequestParam String user, @RequestParam Double xmin,@RequestParam Double xmax, @RequestParam Double ymin, @RequestParam Double ymax){
 		Envelope en = new Envelope(xmin,xmax,ymin,ymax);
 		List<Punto> fa = puntoService.findAll();

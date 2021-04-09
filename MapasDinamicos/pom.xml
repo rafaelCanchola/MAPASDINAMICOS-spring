@@ -11,7 +11,7 @@
 	<groupId>com.siap.dti</groupId>
 	<artifactId>MapasDinamicos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>MapasDinamicos</name>
 	<description>Mapas Dinamicos de Cultivos</description>
 	<properties>
