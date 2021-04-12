@@ -27,9 +27,10 @@ public class MapasDinamicosApplication {
 				registry.addMapping("/api/usuarios").allowedOrigins(env.getProperty("app.cross.origins"));
 				registry.addMapping("/api/years").allowedOrigins(env.getProperty("app.cross.origins"));
 				registry.addMapping("/api/predios").allowedOrigins(env.getProperty("app.cross.origins"));
-				registry.addMapping("/api/insertpoli").allowedOrigins(env.getProperty("app.cross.origins"));
 				registry.addMapping("/api/poliall").allowedOrigins(env.getProperty("app.cross.origins"));
 				registry.addMapping("/api/uploadcharge").allowedOrigins(env.getProperty("app.cross.origins"));
+				registry.addMapping("/api/predioidentify").allowedOrigins(env.getProperty("app.cross.origins"));
+				
 				
 			}
 		};

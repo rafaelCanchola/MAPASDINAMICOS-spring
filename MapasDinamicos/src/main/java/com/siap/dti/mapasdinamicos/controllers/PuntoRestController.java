@@ -22,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.siap.dti.mapasdinamicos.models.dto.PuntoHash;
+import com.siap.dti.mapasdinamicos.models.dto.PuntoJson;
 import com.siap.dti.mapasdinamicos.models.entity.Poligono;
 import com.siap.dti.mapasdinamicos.models.entity.Punto;
-import com.siap.dti.mapasdinamicos.models.entity.PuntoJson;
 import com.siap.dti.mapasdinamicos.models.services.IPoligonoService;
 import com.siap.dti.mapasdinamicos.models.services.IPuntoService;
 import com.siap.dti.mapasdinamicos.utilities.ShapeFileUtils;
@@ -52,12 +54,12 @@ public class PuntoRestController {
 		List<PuntoJson> pj = new ArrayList<PuntoJson>();
 		for(Punto p : fa) {
 			if(en.intersects(p.getPoligono().getX(),p.getPoligono().getY())) {
-				pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono()));
+				pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono().getIdcultivo()));
 			}
 		}
 		return ResponseEntity.ok(pj);
 	}
-	
+	/*
 	@PostMapping("/insertpoli")
 	public ResponseEntity<PuntoJson> InsertPoli(@RequestBody Poligono poligono){
 		Poligono jpaPoligono = poligonoService.save(poligono);
@@ -68,20 +70,29 @@ public class PuntoRestController {
 		Punto jpaPunto = puntoService.save(nuevoPunto);
 		return ResponseEntity.ok(new PuntoJson(jpaPunto.getId(),jpaPunto.getThe_geom().toString(),jpaPunto.getPoligono()));
 	}
-	
+	*/
 	@GetMapping("/poliall")
 	public ResponseEntity<List<PuntoJson>> AllPoints(){
 		List<Punto> fa = puntoService.findAll();
 		List<PuntoJson> pj = new ArrayList<PuntoJson>();
 		for(Punto p : fa) {
-			pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono()));
+			pj.add(new PuntoJson(p.getId(),p.getThe_geom().toString(),p.getPoligono().getIdcultivo()));
 		}
 		return ResponseEntity.ok(pj);
 	}
+	
+	@GetMapping("/predioidentify")
+	public ResponseEntity<List<PuntoHash>> EncontrarPunto(@RequestParam Long id){
+		Punto fa = puntoService.findById(id);
+		
+		return ResponseEntity.ok(fa.getPoligono().toListHash());
+	}
+	
 
 	@PostMapping("/uploadcharge")
 	public ResponseEntity<List<PuntoJson>> CargarPoligonos(@RequestParam Long user,@RequestParam String type,@RequestParam Integer currentyear,@RequestParam String useractive,@RequestParam MultipartFile file) throws IllegalStateException, IOException {
 		TreeMap tm = new TreeMap();
+		System.out.println(env.getProperty("app.upload.dir"));
         UncompressorZIP unzip = new UncompressorZIP();
 		String nameTempDir = env.getProperty("app.upload.dir")+env.getProperty("app.upload.mapas")+currentyear+env.getProperty("app.upload.mapas.temporal");
 		String namePuntosDir = env.getProperty("app.upload.dir")+env.getProperty("app.upload.mapas")+currentyear+env.getProperty("app.upload.mapas.puntos");

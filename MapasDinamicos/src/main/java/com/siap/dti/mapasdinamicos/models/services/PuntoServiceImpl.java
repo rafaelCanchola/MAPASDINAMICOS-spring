@@ -26,5 +26,18 @@ public class PuntoServiceImpl implements IPuntoService{
 	public List<Punto> findAll() {
 		return (List<Punto>) puntoDao.findAll();
 	}
+	
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		puntoDao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Punto findById(Long id) {
+		return puntoDao.findById(id).get();
+	}
+
 
 }

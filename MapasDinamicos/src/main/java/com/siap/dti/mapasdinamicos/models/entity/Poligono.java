@@ -1,6 +1,8 @@
 package com.siap.dti.mapasdinamicos.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.siap.dti.mapasdinamicos.models.dto.PuntoHash;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -146,5 +149,22 @@ private static final long serialVersionUID = 1L;
 
 	@Setter @Getter
     private Double shapearea;
+	
+	public List<PuntoHash> toListHash() {
+        List<PuntoHash> puntos = new ArrayList<>();
+        puntos.add(new PuntoHash("Folio cultivo", this.getShid()));
+        puntos.add(new PuntoHash("Año", this.getAnio()));
+        puntos.add(new PuntoHash("Nombre cultivo", this.getNomcultivo()));
+        puntos.add(new PuntoHash("Modalidad", this.getNommodalid()));
+        puntos.add(new PuntoHash("Producción", this.getVolumenpro() + " "+ this.getNomunidad()));
+        puntos.add(new PuntoHash("Ciclo", this.getNomcliclopr()));
+        puntos.add(new PuntoHash("Cader", this.getNomcader()));
+        puntos.add(new PuntoHash("DDR", this.getNomddr()));
+        puntos.add(new PuntoHash("Estado", this.getNomestado()));
+        puntos.add(new PuntoHash("Entidad", this.getNoment()));
+        puntos.add(new PuntoHash("Municipio", this.getNommunicip()));
+        puntos.add(new PuntoHash("Geo", this.getNomgeo()));
+        return puntos;
+    }
 
 }

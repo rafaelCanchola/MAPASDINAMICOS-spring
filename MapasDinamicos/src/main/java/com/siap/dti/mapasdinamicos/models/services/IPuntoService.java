@@ -10,5 +10,10 @@ public interface IPuntoService {
 	
 	public List<Punto> findAll();
 	
+	public void delete(Long id);
+	
+	public Punto findById(Long id);
+	
+	
 
 }
