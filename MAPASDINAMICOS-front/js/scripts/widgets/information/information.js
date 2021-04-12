@@ -1,5 +1,5 @@
 /**
- * Permite mostrar mediante listas de información los resultados de una busqueda de un predio, o identifiación de los datos de un feature desplegada en el mapa
+ * Permite mostrar mediante listas de informaciï¿½n los resultados de una busqueda de un predio, o identifiaciï¿½n de los datos de un feature desplegada en el mapa
  */
 define(["validator","connections","map","structure"], function(validator,connections,map,structure){
 $.widget( "custom.information", {
@@ -27,14 +27,7 @@ $.widget( "custom.information", {
                     var ids = obj.options.data.ids;
                     obj.enableType(type);
                     if (type=='identify') {
-                              var params = {action:'identify',currentyear:obj.options.userActive.currentyear};
-                              if (obj.options.data.feature=='point') {
-                                        params['id']=ids;
-                              }else{
-                                        params['folio']=obj.options.data.ids;
-                                        params['useractive']=obj.options.userActive.id;
-                                        params['user']=obj.options.userLoged.id;
-                              }
+                              var params = {id:ids,currentyear:obj.options.userActive.currentyear};
                               obj.request(params,obj.options.data.feature);
                     }else{//search
                               if (ids!=null) {
@@ -247,37 +240,28 @@ $.widget( "custom.information", {
           request : function(params,Feature){
                    
                     var obj=this;
-                    //var spinner = $(".spinner_search");
-                    //var clase='hidden';
                     var msg = 'Servicio no disponible intente m&aacute;s tarde';
                     var r= {
-                            success:function(json,estatus){
-                                var valid=false;
-                                
-                                if (json){
-                                    if (json.response.sucessfull){
-                                        valid=true;
-                                        if (params.action=='find') {//search
-                                                  obj.fillTable(json.data,'search_results',Feature);
-                                        }else{//identify
-                                                  obj.fillTable(json.data,'identify_results',Feature);
-                                        }
-                                    }else{
-                                        msg=json.response.message;
-                                    }
-                                }
-                                if (!valid) {
-                                    obj.showMessage(msg);
+                        statusCode: {
+                            200: function (json, estatus) {
+                                if (params.action=='find') {//search
+                                    obj.fillTable(json,'search_results',Feature);
+                                }else{//identify
+                                    obj.fillTable(json,'identify_results',Feature);
                                 }
                             },
+                            400: function () {
+                                showMessage(msg);
+                            },
+                            403: function () {
+                                showMessage('No hay informaciÃ³n disponible');
+                            }
+                        },
                             beforeSend: function(xhr) {
                                         obj.showSpinner();
                                         $(".search_msgError").hide();
                                
                                 
-                            },
-                            error: function(solicitudAJAX,errorDescripcion,errorExcepcion) {
-                                obj.showMessage(msg);
                             },
                             complete: function(solicitudAJAX,estatus) {
                                 obj.hideSpinner();

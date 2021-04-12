@@ -316,9 +316,8 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		var i = data[x];
 		var f = new OpenLayers.Format.WKT('EPSG:3857').read(i.the_geom);
 
-		console.log(f);
 		f['info']=i;
-		f['info'].statusbk= i.status+0;
+		f['info'].statusbk= i.poligono.idcultivo;
 		f['info'].status = ((dataSelected)&&(dataSelected['item'+i.id]))?6:i.status;
 
 		dataPredios['P'+i.id+'i']=f;

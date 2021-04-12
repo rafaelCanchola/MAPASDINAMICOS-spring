@@ -82,9 +82,6 @@ define(["structure","connections","validator"], function(structure,connections,v
 			$(aditional.btn).addClass(clase);
 			$(aditional.spinner).removeClass(clase);
 		    },
-		    error: function(solicitudAJAX,errorDescripcion,errorExcepcion) {
-			showMessage(msg);
-		    },
 		    complete: function(solicitudAJAX,estatus) {
 			$(aditional.btn).removeClass(clase);
 			$(aditional.spinner).addClass(clase)

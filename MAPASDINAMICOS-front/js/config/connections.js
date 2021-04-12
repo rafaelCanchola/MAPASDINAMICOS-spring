@@ -261,7 +261,7 @@ define([], function () {
         },
         identify: {
             getPredio: {
-                url: 'http://localhost:8080/api/Predios?',
+                url: 'http://187.191.53.158:8080/api/predioidentify?',
                 type: 'GET',
                 dataType: 'json',
                 contentType: 'application/json'
