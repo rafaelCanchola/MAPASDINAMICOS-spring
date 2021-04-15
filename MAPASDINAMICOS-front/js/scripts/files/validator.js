@@ -1,6 +1,6 @@
 /**
- * Comprende un número determinado de métodos mediante los cuales se podra, determinar si un string esta vacio, validaciones para determinar si un campo es telefonico,
- * obtencion de roles por tipo de usuario, obtención de estatus para predios desplegados en el mapa, remover acentos, y mensajes de notifiación en base a un determinado estatus
+ * Comprende un nï¿½mero determinado de mï¿½todos mediante los cuales se podra, determinar si un string esta vacio, validaciones para determinar si un campo es telefonico,
+ * obtencion de roles por tipo de usuario, obtenciï¿½n de estatus para predios desplegados en el mapa, remover acentos, y mensajes de notifiaciï¿½n en base a un determinado estatus
  */
 define([], function(){
 	var removeEmptySpaces=function(a){
@@ -126,6 +126,10 @@ define([], function(){
 	    case 14://upas inexistentes
 		    color="#131313";
 		    break;
+
+		case 5050000://Agave
+			color="#00727f";
+			break;
 	}
 	
 
