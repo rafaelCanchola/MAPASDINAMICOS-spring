@@ -28,7 +28,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		    bkColor:"${color}",
                     fillOpacity:"${opacity}",
                     strokeColor: "#fff",
-                    strokeWidth: 2,
+                    strokeWidth: 0.5,
                     strokeOpacity: 0.8,
 		    //label : "${name}",
 		    fontColor:"#fff"
@@ -36,9 +36,10 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
                     context: {
 			color:function(feature){
 			    var color='';
+			    //console.log(feature.info);
 			    switch (feature.info.type) {
 				case 'polygon':
-				    color='#00264B';
+				    color=validator.getColorStatus(feature.info.idcultivo);
 				    break;
 				case 'line':
 				    break;
@@ -192,8 +193,8 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		i.type='polygon';
 		i.active=false;
         try {
-            var f = new OpenLayers.Format.WKT('EPSG:4326').read(i.wkt);
-            f.geometry = f.geometry.transform('EPSG:4326','EPSG:900913');
+            var f = new OpenLayers.Format.WKT('EPSG:3857').read(i.the_geom);
+            f.geometry = f.geometry.transform('EPSG:3857','EPSG:900913');
             f['info']=i;
             dataPolygons['Poly'+i.id+'i']=f;
             features.push(f);
@@ -231,7 +232,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 			color:function(feature){
 			    var color='#cc6633';
 			    if (feature.cluster.length==1) {
-				color = validator.getColorStatus(feature.cluster[0].info.status);
+				color = validator.getColorStatus(feature.cluster[0].info.idcultivo);
 			    }
 			    return color;
 			},
@@ -342,7 +343,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
         return Predios.features;
     }
     var showInfoPolygon = function(feature){
-	var field='fol_predio';
+	var field='id';
 	var params={
 		    userActive:activeUser,
 		    userLoged:userLoged,
@@ -370,7 +371,6 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		    }
 	    };
 	if (feature.cluster.length>1) {
-	    field='fol_predio';
 	    params={
 		    userActive:activeUser,
 		    data:{
@@ -395,6 +395,27 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
     var showMessage = function(msg){
 	
     }
+
+	var requestPoligonos = function(params,type) {
+		var msg = 'Servicio no disponible intente m&aacute;s tarde'
+		var r= {
+			statusCode:{
+				200: function (json,estatus){
+					addPolygons(json);
+				},
+				400: function(){
+					showMessage(msg);
+				},
+				403: function (){
+					showMessage('No hay información disponible');
+				}
+			},
+		};
+		r = $.extend(r, connections.features.getPolygons);
+		r.data = params;
+		$.ajax(r);
+	}
+
 	var requestPredios = function(params,type) {
 		var msg = 'Servicio no disponible intente m&aacute;s tarde'
 		var r= {
@@ -489,16 +510,18 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
     var loadPolygons = function(){
 	var config = mappingConfig;
         var e= Map.getExtent();
-	var punto = new OpenLayers.LonLat(e.left,e.bottom).transform(mapProjection,config.displayProjection);
-	var punto2 = new OpenLayers.LonLat(e.right,e.top).transform(mapProjection,config.displayProjection);
+	var punto = new OpenLayers.LonLat(e.left,e.bottom)//.transform(mapProjection,config.displayProjection);
+	var punto2 = new OpenLayers.LonLat(e.right,e.top)//.transform(mapProjection,config.displayProjection);
 	try {
 	    var filter = $(".app_bottom_section_predios").reports('getFilter');
 	} catch(e) {
 	    var filter = "";
 	}
 	filter = (typeof filter === 'object')?'':filter;
-	request({action:'get',filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat,currentyear:activeUser.currentyear,useractive:userLoged.id},'polygons');
-    }
+	//request({action:'get',filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat,currentyear:activeUser.currentyear,useractive:userLoged.id},'polygons');
+		requestPoligonos({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'polygons');
+
+	}
     var loadPredios = function(){
 	
 	var config = mappingConfig;
@@ -512,7 +535,8 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	    var filter = "";
 	}
 	filter = (typeof filter === 'object')?'':filter;
-	requestPredios({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
+	//OCULTAR PREDIOS
+	//requestPredios({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
 	//request({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},'predios');
     }
     var clockPrediosForMap = null;
