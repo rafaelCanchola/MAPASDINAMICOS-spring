@@ -20,6 +20,9 @@ public class PuntoJson implements Serializable{
 	
 	@Setter @Getter
 	private Long idcultivo;
+	
+	@Setter @Getter
+	private String fol_predio;
 	/*
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@Setter @Getter

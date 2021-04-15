@@ -7,9 +7,9 @@ import com.siap.dti.mapasdinamicos.models.entity.Ejercicio;
 
 public interface IEjercicioService {
 	
-public List<Ejercicio> findAll();
+	public List<Ejercicio> findAll();
 	
-	public Ejercicio save(Ejercicio usuario);
+	public Ejercicio save(Ejercicio ejercicio);
 	
 	public void delete(Long id);
 	

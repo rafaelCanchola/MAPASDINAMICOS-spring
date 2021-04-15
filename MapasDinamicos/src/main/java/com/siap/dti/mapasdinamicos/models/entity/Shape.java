@@ -6,19 +6,23 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.siap.dti.mapasdinamicos.models.dto.PuntoHash;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="poligonos")
-public class Poligono implements Serializable{
+@Table(name="shapes")
+public class Shape implements Serializable{
 
 private static final long serialVersionUID = 1L;
 	
@@ -30,9 +34,6 @@ private static final long serialVersionUID = 1L;
 	@Column(columnDefinition="text")
 	@Setter @Getter
 	private String shid;
-	
-	@Setter @Getter
-	private Long objectid;
 	
 	@Setter @Getter
 	private Long anio;
@@ -117,38 +118,19 @@ private static final long serialVersionUID = 1L;
 
 	@Setter @Getter
     private Double valorprodu;
-
-	@Column(columnDefinition="text")
+    	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@OneToOne(fetch= FetchType.LAZY)
+	@JoinColumn(name="punto_id")
 	@Setter @Getter
-    private String cveent;
-    
-    @Column(columnDefinition="text")
+	private Punto punto;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@OneToOne(fetch= FetchType.LAZY)
+	@JoinColumn(name="poligono_id")
 	@Setter @Getter
-    private String noment;
-
-    @Column(columnDefinition="text")
-	@Setter @Getter
-    private String cvemun;
-    
-    @Column(columnDefinition="text")
-	@Setter @Getter
-    private String nomgeo;
-
-    @Column(columnDefinition="text")
-	@Setter @Getter
-    private String cvegeo;
-    
-    @Setter @Getter
-    private Double x;
-    
-    @Setter @Getter
-    private Double y;
-
-	@Setter @Getter
-    private Double shapeleng;
-
-	@Setter @Getter
-    private Double shapearea;
+	private Poligono poligono;
+	
 	
 	public List<PuntoHash> toListHash() {
         List<PuntoHash> puntos = new ArrayList<>();
@@ -161,9 +143,7 @@ private static final long serialVersionUID = 1L;
         puntos.add(new PuntoHash("Cader", this.getNomcader()));
         puntos.add(new PuntoHash("DDR", this.getNomddr()));
         puntos.add(new PuntoHash("Estado", this.getNomestado()));
-        puntos.add(new PuntoHash("Entidad", this.getNoment()));
         puntos.add(new PuntoHash("Municipio", this.getNommunicip()));
-        puntos.add(new PuntoHash("Geo", this.getNomgeo()));
         return puntos;
     }
 

@@ -15,8 +15,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="puntos")
-public class Punto implements Serializable{
+@Table(name="poligonos")
+public class Poligono implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
