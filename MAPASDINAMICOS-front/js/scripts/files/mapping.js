@@ -241,7 +241,7 @@ define(["Openlayers","connections","validator","mappingConfig","webmapservices",
 	    var f = response.features[0].geometry;
 	    var lon =f.x;
 	    var lat = f.y;
-	    var punto = new OpenLayers.LonLat(lon,lat).transform(config.displayProjection,mapProjection);
+	    var punto = new OpenLayers.LonLat(lon,lat);
 	    map.setCenter(punto,18);
 	}
 	
@@ -260,7 +260,7 @@ define(["Openlayers","connections","validator","mappingConfig","webmapservices",
 	var config = mappingConfig;
 	if (response.valid) {
 	    var bounds=response.bounds.clone();
-            map.zoomToExtent(bounds.transform(config.displayProjection,mapProjection));
+            map.zoomToExtent(bounds);
 	}
 	
     };
