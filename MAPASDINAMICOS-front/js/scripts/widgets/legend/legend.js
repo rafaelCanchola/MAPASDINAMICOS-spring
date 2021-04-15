@@ -7,7 +7,7 @@ $.widget( "custom.legend", {
 	  options:{
                  data:[
                     
-                    {color:validator.getColorStatus(1),label:'Disponibles'},
+                    {color:validator.getColorStatus(5050000),label:'Agave'},
                     {color:validator.getColorStatus(2),label:'Asignados'},
                     {color:validator.getColorStatus(3),label:'Entregados'},
                     //{color:validator.getColorStatus(13),label:'Referencias'},
