@@ -27,13 +27,13 @@ $.widget( "custom.information", {
                     var ids = obj.options.data.ids;
                     obj.enableType(type);
                     if (type=='identify') {
-                              var params = {id:ids,currentyear:obj.options.userActive.currentyear};
-                              obj.request(params,obj.options.data.feature);
+                        var params = {id:ids};
+                        obj.request(params,obj.options.data.feature);
                     }else{//search
-                              if (ids!=null) {
-                                        obj.request({action:'find',predio:ids,user:obj.options.userActive.id,currentyear:obj.options.userActive.currentyear},obj.options.data.feature);
-                              }
-                              
+                        if (ids!=null) {
+                            var params = {action:'find',ids:ids};
+                            obj.request(params,obj.options.data.feature);
+                        }
                     }
 
           },
@@ -97,11 +97,11 @@ $.widget( "custom.information", {
                     var infoOption ='<div id="'+idItem+'_info" item="'+i.id+'" class="optionInfo" folio="">'+                            
                                                   '<div class="template_information ti_info"></div>'+
                                               '</div>';
-                    var colorStatus = validator.getColorStatus(i.status);                   
+                    var colorStatus = validator.getColorStatus(i.idcultivo);
                     var boxStatus ='<div class="icon_status" style="background:'+colorStatus+'"></div>';                          
-                    chain+='<div id="'+idItem+'" class="Row '+clase+'" wkt="'+i.wkt+'">'+
+                    chain+='<div id="'+idItem+'" class="Row '+clase+'" wkt="'+i.the_geom+'">'+
                                         '<div class="Cell text_center">'+
-                                           'Folio de predio'+
+                                           'Folio de cultivo'+
                                         '</div>'+
                                         '<div class="Cell borderRow">'+
                                             boxStatus+
@@ -126,7 +126,7 @@ $.widget( "custom.information", {
                                         if (i.alias.indexOf('Folio de productor')!=-1) {
                                                   productor = i.value;
                                         }
-                                        if (i.alias.indexOf('Folio de predio')!=-1) {
+                                        if (i.alias.indexOf('Folio cultivo')!=-1) {
                                                   predio = i.value;
                                         }
                               }
@@ -243,7 +243,7 @@ $.widget( "custom.information", {
                     var msg = 'Servicio no disponible intente m&aacute;s tarde';
                     var r= {
                         statusCode: {
-                            200: function (json, estatus) {
+                            200: function (json) {
                                 if (params.action=='find') {//search
                                     obj.fillTable(json,'search_results',Feature);
                                 }else{//identify
@@ -272,7 +272,7 @@ $.widget( "custom.information", {
                               
                               source = connections.search.event;
                     }else{
-                              source=(Feature=='point')?connections.identify.getPredio:connections.identify.getPolygon;
+                              source=connections.identify.getPredio;
                     }
                     r = $.extend(r, source);
                     r.data=params;
