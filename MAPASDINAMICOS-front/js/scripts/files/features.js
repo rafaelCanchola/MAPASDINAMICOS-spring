@@ -15,12 +15,19 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
     var Predios=null;
     var Polygons=null;
     var Tracklog=null;
-    var dataSelected=null;
+    var Agave = null;
+	var Aguacate = null;
+	var Manzana = null;
+	let xhrAgave = null;
+	let xhrAguacate = null;
+	let xhrManzana  = null;
+
+	var dataSelected=null;
     var ctlSelectPredio=null;
  /**
  * Permite agregar la capa poligonos
  */
-    var addLayerPolygons = function(){
+    var addLayerPolygons = function(cultivo){
 	
 	var style = new OpenLayers.Style({
                     pointRadius: 4,
@@ -59,17 +66,61 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 			
                     }
         });
-        
-        Polygons = new OpenLayers.Layer.Vector("Polygons", {
-                    styleMap: new OpenLayers.StyleMap({
-                        "default": style,
-                        "select": {
-                            fillColor: "#8aeeef",
-                            strokeColor: "#32a8a9"
-                        }
-                    })
-        });
-        Map.addLayers([Polygons]);
+        switch(cultivo){
+			case 5050000:
+				Agave = new OpenLayers.Layer.Vector("Agave", {
+					styleMap: new OpenLayers.StyleMap({
+						"default": style,
+						"select": {
+							fillColor: "#8aeeef",
+							strokeColor: "#32a8a9"
+						}
+					})
+				});
+
+				Map.addLayers([Agave]);
+
+				break;
+			case 5060000:
+				Aguacate = new OpenLayers.Layer.Vector("Aguacate", {
+					styleMap: new OpenLayers.StyleMap({
+						"default": style,
+						"select": {
+							fillColor: "#8aeeef",
+							strokeColor: "#32a8a9"
+						}
+					})
+				});
+				Map.addLayers([Aguacate]);
+
+				break;
+			case 7580000:
+				Manzana = new OpenLayers.Layer.Vector("Manzana", {
+					styleMap: new OpenLayers.StyleMap({
+						"default": style,
+						"select": {
+							fillColor: "#8aeeef",
+							strokeColor: "#32a8a9"
+						}
+					})
+				});
+				Map.addLayers([Manzana]);
+
+				break;
+			/*default:
+				Polygons = new OpenLayers.Layer.Vector("Polygons", {
+					styleMap: new OpenLayers.StyleMap({
+						"default": style,
+						"select": {
+							fillColor: "#8aeeef",
+							strokeColor: "#32a8a9"
+						}
+					})
+				});
+				Map.addLayers([Polygons]);
+				break;*/
+		}
+
     };
  /**
  * Agrega un tracklog empleando un estilo definido
@@ -114,13 +165,6 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
                     })
         });
         Map.addLayers([Tracklog]);
-    };
-    /**
-    * Permite eliminar cada un de los features asociados a la capa poligonos
-    */
-    var clearPolygons=function(){
-	dataPolygons = {};
-	Polygons.removeFeatures(Polygons.features);
     };
     /**
     * Permite eliminar cada uno de los features asociados a un tracklog
@@ -187,24 +231,42 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
     */
     var addPolygons = function(data){
 	var features = [];
-	clearPolygons();
+	var idcultivo = null;
 	for(var x in data){
 		var i = data[x];
 		i.type='polygon';
 		i.active=false;
+		idcultivo = i.idcultivo;
         try {
             var f = new OpenLayers.Format.WKT('EPSG:3857').read(i.the_geom);
             f.geometry = f.geometry.transform('EPSG:3857','EPSG:900913');
             f['info']=i;
-            dataPolygons['Poly'+i.id+'i']=f;
+            //dataPolygons['Poly'+i.id+'i']=f;
             features.push(f);
         } catch(e) {
         
         }
 			    
 	}
-	Polygons.setVisibility(true);
-	Polygons.addFeatures(features);
+		abortPolygons(idcultivo);
+		switch (idcultivo){
+		case 5050000:
+			Agave.setVisibility(true);
+			Agave.addFeatures(features);
+			break;
+		case 5060000:
+			Aguacate.setVisibility(true);
+			Aguacate.addFeatures(features);
+			break;
+		case 7580000:
+			Manzana.setVisibility(true);
+			Manzana.addFeatures(features);
+			break;
+		default:
+			Polygons.setVisibility(true);
+			Polygons.addFeatures(features);
+			break;
+	}
     }
     var addLayerPredios = function(){
 		var style = new OpenLayers.Style({
@@ -261,23 +323,23 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 			}
                     }
                 });
-                
-                strategy = new OpenLayers.Strategy.Cluster();
+		/*
+        strategy = new OpenLayers.Strategy.Cluster();
 
-                Predios = new OpenLayers.Layer.Vector("Clusters", {
-                    strategies: [strategy],
-                    styleMap: new OpenLayers.StyleMap({
-                        "default": style,
-                        "select": {
-                            fillColor: "#8aeeef",
-                            strokeColor: "#32a8a9"
-                        }
-                    })
-                });
-                Map.addLayers([Predios]);
+        Predios = new OpenLayers.Layer.Vector("Clusters", {
+            strategies: [strategy],
+            styleMap: new OpenLayers.StyleMap({
+                "default": style,
+                "select": {
+                    fillColor: "#8aeeef",
+                    strokeColor: "#32a8a9"
+                }
+            })
+        });
+        Map.addLayers([Predios]);*/
 		
 		ctlSelectPredio = new OpenLayers.Control.SelectFeature(
-                            [Predios,Polygons],
+                            [Agave,Aguacate,Manzana],
                             {
                                 clickout: true,
                                 toggle: false,
@@ -293,16 +355,26 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 
                 
 		
-		Predios.events.on({
+		/*Predios.events.on({
 		    "featureselected": function(e) {
-                        
+
 			showInfoFeature(e.feature);
 		    }
-		});
-		Polygons.events.on({
+		});*/
+		Agave.events.on({
 		    "featureselected": function(e) {
 			showInfoPolygon(e.feature);
 		    }
+		});
+		Aguacate.events.on({
+			"featureselected": function(e) {
+				showInfoPolygon(e.feature);
+			}
+		});
+		Manzana.events.on({
+			"featureselected": function(e) {
+				showInfoPolygon(e.feature);
+			}
 		});
     };
     var setVisivility=function(label,status){
@@ -413,7 +485,17 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		};
 		r = $.extend(r, connections.features.getPolygons);
 		r.data = params;
-		$.ajax(r);
+		switch(parseInt(type)){
+			case 5050000:
+				xhrAgave = $.ajax(r);
+				break;
+			case 5060000:
+				xhrAguacate = $.ajax(r);
+				break;
+			case 7580000:
+				xhrManzana = $.ajax(r);
+				break;
+		}
 	}
 
 	var requestPredios = function(params,type) {
@@ -507,6 +589,101 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	var obj = this;
 	request({action:'get',folio:folio,currentyear:activeUser.currentyear},'tracklogs');
     }
+
+	/**
+	 * Permite eliminar cada un de los features asociados a la capa poligonos
+	 */
+	var clearPolygons = function(cultivo){
+		//dataPolygons = {};
+		//clearCultivo(cultivo);
+		abortPolygons(cultivo);
+		switch(parseInt(cultivo)){
+			case 5050000:
+				if(xhrAgave != null){
+					xhrAgave.abort();
+					xhrAgave = null;
+				}
+				break;
+			case 5060000:
+				if(xhrAguacate != null){
+					xhrAguacate.abort();
+					xhrAguacate = null;
+				}
+				break;
+			case 7580000:
+				if(xhrManzana){
+					xhrManzana.abort();
+					xhrManzana = null;
+				}
+				break;
+
+		}
+
+	}
+
+	var abortPolygons = function(cultivo){
+		switch(parseInt(cultivo)) {
+			case 5050000:
+				if (Agave != null) {
+					Agave.removeFeatures(Agave.features);
+				}
+				break;
+			case 5060000:
+				if (Aguacate != null) {
+					Aguacate.removeFeatures(Aguacate.features);
+				}
+				break;
+			case 7580000:
+				if (Manzana != null) {
+					Manzana.removeFeatures(Manzana.features);
+				}
+				break;
+		}
+	}
+
+	var clearCultivo = function(cultivo){
+		console.log(cultivo)
+		switch(cultivo){
+			case 5050000:
+				if(Agave.features != null){
+					Agave.removeFeatures(Agave.features);
+				}else{
+					xhrAgave.abort();
+				}
+				break;
+			case 5060000:
+				if(Aguacate.features != null){
+					Aguacate.removeFeatures(Aguacate.features);
+				}else{
+					xhrAguacate.abort();
+				}
+				break;
+			case 7580000:
+				if(Manzana.features != null){
+					Manzana.removeFeatures(Manzana.features);
+				}else{
+					xhrManzana.abort();
+				}
+				break;
+			default:
+				Polygons.removeFeatures(Polygons.features);
+				break;
+
+		}
+	}
+
+	/**
+	 * Permite agregar el filtro a la busqueda de poligonos
+	 */
+    var loadFilterPolygons = function(filter){
+
+		var config = mappingConfig;
+		var e = Map.getExtent();
+		var punto = new OpenLayers.LonLat(e.left,e.bottom)//.transform(mapProjection,config.displayProjection);
+		var punto2 = new OpenLayers.LonLat(e.right,e.top)//.transform(mapProjection,config.displayProjection);
+		requestPoligonos({filter:filter,user:activeUser.id,xmin:punto.lon, xmax:punto2.lon, ymin:punto.lat, ymax:punto2.lat},filter);
+	}
+
     var loadPolygons = function(){
 	var config = mappingConfig;
         var e= Map.getExtent();
@@ -547,7 +724,7 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 	}
 	clearClockPrediosForMap();
 	clockPrediosForMap = setTimeout(function(){
-	    loadPredios();
+	    //loadPredios();
 	    loadPolygons();
 	    defineClockPredios();
 	    },1000);
@@ -597,8 +774,10 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
     var idFeatureToSelect=null;
     var storeFeatureToSelect=function(id){
 	idFeatureToSelect=id;
+	console.log(id)
     }
     var selectFeature = function(){
+    	console.log("Select")
 	if (idFeatureToSelect!=null) {
 	    var feature = null;
 	    for(var x in Predios.features){
@@ -620,24 +799,27 @@ define(["Openlayers","connections","validator","mappingConfig"], function(Openla
 		mapEvents=events;
 		userLoged = userloged;
 		activeUser=user;
-		addLayerPolygons();
+		addLayerPolygons(5050000);
+		addLayerPolygons(5060000);
+		addLayerPolygons(7580000);
 		addLayerPredios();
-		addLayerTracklog();
-		loadPredios();
+		//addLayerTracklog();
+		//loadPredios();
 		//defineClockPredios();
 	    },
-	    load:loadPredios,
+	    //load:loadPredios,
 	    loadPredios:function(user){
-		defineClockPrediosForMap(user);
+		//defineClockPrediosForMap(user);
 	    },
 	    updatePredios:function(){
-		defineClockPredios();
-		loadPredios();
+		//defineClockPredios();
+		//loadPredios();
 		loadPolygons();
 		
 	    },
 	    hidePredios:hidePredios,
 	    loadPolygons:function(){},//addPolygons,
+		loadFilterPolygons:loadFilterPolygons,
 	    clearPolygons:clearPolygons,
 	    selectPolygon:selectPolygon,
 	    unselectPolygon:unselectPolygon,

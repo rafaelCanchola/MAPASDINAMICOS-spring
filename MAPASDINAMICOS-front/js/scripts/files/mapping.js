@@ -133,7 +133,16 @@ define(["Openlayers","connections","validator","mappingConfig","webmapservices",
                     
                 },
                 "zoomend": function(){
-                    features.loadPredios();
+                    //features.loadPredios();
+                        if(webmapservices.getAgave()){
+                            setTimeout(function () {features.clearPolygons(5050000);features.loadFilterPolygons(5050000);},1000);
+                        }if(webmapservices.getAguacate()){
+                            setTimeout(function () {features.clearPolygons(5060000);features.loadFilterPolygons(5060000);},1000);
+                        }if(webmapservices.getManzana()){
+                            setTimeout(function () {features.clearPolygons(7580000);features.loadFilterPolygons(7580000);},1000);
+                        }
+
+
                 },
                 "mousemove":function(e){
                     
@@ -513,6 +522,7 @@ define(["Openlayers","connections","validator","mappingConfig","webmapservices",
                 }
             }
         }
+
         return {assigned:assigned,notAssigned:notAssigned};
     }
     return {

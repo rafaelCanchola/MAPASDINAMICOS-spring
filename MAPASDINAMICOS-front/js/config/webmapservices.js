@@ -5,7 +5,45 @@
  * @param {Object} overlays - corresponde a un objeto con cada una de las capas vectoriales, su ruta de acceso, formato de imagen y capas a encender
  */
 define([], function(){
+    let cultivoLayer = {
+        Agave:{active:false,id:5050000},
+        Aguacate:{active:false,id:5060000},
+        Manzana:{active:false,id:7580000},
+        active:false
+    };
+    var changeAgave = function (status){
+        cultivoLayer.Agave.active = status;
+    }
+    var changeAguacate = function (status){
+        cultivoLayer.Aguacate.active = status;
+    }
+    var changeManzana = function (status){
+        cultivoLayer.Manzana.active = status;
+    }
+    var getAgave = function (){
+        return cultivoLayer.Agave.active;
+    }
+    var getAguacate = function (){
+        return cultivoLayer.Aguacate.active;
+    }
+    var getManzana = function (){
+        return cultivoLayer.Manzana.active;
+    }
+    var changeStatus = function (status){
+        return cultivoLayer.active = status;
+    }
+    var getStatus = function (){
+        return cultivoLayer.active;
+    }
         return {
+            changeAgave:changeAgave,
+            changeAguacate:changeAguacate,
+            changeManzana:changeManzana,
+            getAgave:getAgave,
+            getAguacate:getAguacate,
+            getManzana:getManzana,
+            getStatus:getStatus,
+            changeStatus:changeStatus,
             bases:{
                 
                
@@ -79,21 +117,21 @@ define([], function(){
                         projection:'EPSG:3857',
                         tiled:true,
                         layers:{
-                                municipios_bienestar:{
+                                /*municipios_bienestar:{
                                         label:'Municipios',
-                                        active:true
+                                        active:false
                                 },
                                 municipios_bienestar_textos:{
                                         label:'Municipios (etiquetas)',
                                         active:false
-                                },
-                                estados_bienestar:{
+                                },*/
+                                estados_mapas_dinamicos:{
                                         label:'Estados',
                                         active:true
                                 },
-                                estados_bienestar_textos:{
+                                estados_mapas_dinamicos_textos:{
                                         label:'Estados (etiquetas)',
-                                        active:true
+                                        active:false
                                 },
                                 zonasutm_google:{
                                         label:'Zonas UTM',
@@ -103,12 +141,12 @@ define([], function(){
                                         label:'Zonas UTM (etiquetas)',
                                         active:true
                                 },
-                                limites_costeros:{
+                                /*limites_costeros:{
                                         label:'Limites costeros',
                                         active:false
-                                }
+                                }*/
                         }                        
                 }                
-            }
+            },
         }
 });

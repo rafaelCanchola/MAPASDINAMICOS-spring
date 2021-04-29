@@ -130,6 +130,12 @@ define([], function(){
 		case 5050000://Agave
 			color="#00727f";
 			break;
+		case 5060000://Aguacate
+			color="#6C9B3B";
+			break;
+		case 7580000://Manzana
+			color="#d3353b";
+			break;
 	}
 	
 

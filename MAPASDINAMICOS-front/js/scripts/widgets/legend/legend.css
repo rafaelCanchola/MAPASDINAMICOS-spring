@@ -15,8 +15,18 @@ border-radius: 10px 10px 10px 10px;
 
 .custom_legend .item_option{
     height: 20px;
-    width: 90px;
-    margin-bottom: 5px; 
+    width: 120px;
+    margin-bottom: 5px;
+}
+.custom_legend input{
+    cursor: pointer;
+    height: 16px;
+    width:16px;
+    display: inline-block;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    top: 4px;
 }
 
 .custom_legend .item_option .status{
@@ -28,8 +38,9 @@ border-radius: 10px 10px 10px 10px;
     position: relative;
     top: 4px;
 }
+
 .custom_legend .item_option .label{
     display: inline-block;
     color:black;
-    margin-left: 10px;
+    margin-left: 5px;
 }
