@@ -51,13 +51,15 @@ public class ShapeRestController {
 	private GeometryFactory gf = new GeometryFactory(new PrecisionModel(PrecisionModel.FLOATING),3857);
 	
 	@GetMapping("/poligonos")
-	public ResponseEntity<List<PuntoJson>> poligonos(@RequestParam String filter, @RequestParam String user, @RequestParam Double xmin,@RequestParam Double xmax, @RequestParam Double ymin, @RequestParam Double ymax){
+	public ResponseEntity<List<PuntoJson>> poligonos(@RequestParam Long filter, @RequestParam String user, @RequestParam Double xmin,@RequestParam Double xmax, @RequestParam Double ymin, @RequestParam Double ymax){
 		Envelope en = new Envelope(xmin,xmax,ymin,ymax);
 		List<Shape> fa = shapeService.findAll();
 		List<PuntoJson> pj = new ArrayList<PuntoJson>();
 		for(Shape p : fa) {
-			if(en.intersects(p.getPunto().getThe_geom().getCoordinate().getX(),p.getPunto().getThe_geom().getCoordinate().getY())) {
-				pj.add(new PuntoJson(p.getId(),p.getPoligono().getThe_geom().toString(),p.getIdcultivo(),p.getShid()));
+			if(p.getIdcultivo().equals(filter)) {
+				if(en.intersects(p.getPunto().getThe_geom().getCoordinate().getX(),p.getPunto().getThe_geom().getCoordinate().getY())) {
+					pj.add(new PuntoJson(p.getId(),p.getPoligono().getThe_geom().toString(),p.getIdcultivo(),p.getShid()));
+				}
 			}
 		}
 		return ResponseEntity.ok(pj);
@@ -118,8 +120,7 @@ public class ShapeRestController {
 	@PostMapping("/uploadcharge")
 	public ResponseEntity<List<PuntoJson>> cargarPoligonos(@RequestParam Long user,@RequestParam String type,@RequestParam Integer currentyear,@RequestParam String useractive,@RequestParam MultipartFile file) throws IllegalStateException, IOException {
 		TreeMap tm = new TreeMap();
-		System.out.println(env.getProperty("app.upload.dir"));
-        UncompressorZIP unzip = new UncompressorZIP();
+		UncompressorZIP unzip = new UncompressorZIP();
 		String nameTempDir = env.getProperty("app.upload.dir")+env.getProperty("app.upload.mapas")+currentyear+env.getProperty("app.upload.mapas.temporal");
 		String namePuntosDir = env.getProperty("app.upload.dir")+env.getProperty("app.upload.mapas")+currentyear+env.getProperty("app.upload.mapas.puntos");
 		String fileName = Utils.getFileNameUpload(file.getOriginalFilename().split(".zip")[0],user.intValue());
