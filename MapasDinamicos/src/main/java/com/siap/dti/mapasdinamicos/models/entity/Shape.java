@@ -75,15 +75,7 @@ private static final long serialVersionUID = 1L;
     @Column(columnDefinition="text")
 	@Setter @Getter
     private String nomcliclopr;
-    
-	@Setter @Getter
-    private Long idmodalida;
-    
-    @Column(columnDefinition="text")
-
-	@Setter @Getter
-    private String nommodalid;
-    
+        
 	@Setter @Getter
     private Long idunidadme;
     
@@ -137,7 +129,6 @@ private static final long serialVersionUID = 1L;
         puntos.add(new PuntoHash("Folio cultivo", this.getShid()));
         puntos.add(new PuntoHash("Año", this.getAnio()));
         puntos.add(new PuntoHash("Nombre cultivo", this.getNomcultivo()));
-        puntos.add(new PuntoHash("Modalidad", this.getNommodalid()));
         puntos.add(new PuntoHash("Producción", this.getVolumenpro() + " "+ this.getNomunidad()));
         puntos.add(new PuntoHash("Ciclo", this.getNomcliclopr()));
         puntos.add(new PuntoHash("Cader", this.getNomcader()));

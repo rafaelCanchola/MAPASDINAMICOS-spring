@@ -53,8 +53,6 @@ public class ShapeFileUtils {
                 shape.setConcate(Long.valueOf((String)feature.getAttribute("Concate")));
                 shape.setIdciclo((Long)feature.getAttribute("Idciclo"));
                 shape.setNomcliclopr((String)feature.getAttribute("Nomciclopr"));
-                shape.setIdmodalida((Long)feature.getAttribute("Idmodalida"));
-                shape.setNommodalid((String)feature.getAttribute("Nommodalid"));
                 shape.setIdunidadme((Long)feature.getAttribute("Idunidadme"));
                 shape.setNomunidad((String)feature.getAttribute("Nomunidad"));
                 shape.setIdcultivo((Long)feature.getAttribute("Idcultivo"));
