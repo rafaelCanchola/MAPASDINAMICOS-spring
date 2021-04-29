@@ -8,7 +8,6 @@ define(["map","validator","restrictions","connections"], function(map,validator,
     var getHeader=function(a){
 	var r = restrictions.roles;
 	var title = 'Mapas Din&aacute;micos';
-	console.log(a);
 	//var year = '2019';
 	/*
 	if (a.roleId==1) {
@@ -132,12 +131,12 @@ define(["map","validator","restrictions","connections"], function(map,validator,
         return chain;
         */
         var chain =''+
-                '<div id="list_total" status="close" class="item_head" align="center">'+
+                '<div id="list_predios" status="close" class="item_head" align="center">'+
                     '<div  class="border_head"></div>'+
                     '<div class="icon_head">'+
                         '<div class="template_structue tst_list_predios"></div>'+
                     '</div>'+    
-                    '<div class="label_head2">Listados</div>'+
+                    '<div class="label_head2">Listado de cultivos</div>'+
 			    '</div>';
         var list = [{label:'Predios',id:'list_predios'}];
         /*
@@ -152,12 +151,12 @@ define(["map","validator","restrictions","connections"], function(map,validator,
         for(var x in list){
             listChain+='<div id="'+list[x].id+'" class="optionList">'+list[x].label+'</div>';
         }
-        chain+='<div class="tooltip_list">'+
+        /*chain+='<div class="tooltip_list">'+
                     '<div class="Tooltip top">'+
                         '<div class="content"></div>'+
                         listChain+
                     '</div>'+
-			    '</div>';
+			    '</div>';*/
         return chain;
     };
     var builStructure = function(a){
@@ -206,7 +205,7 @@ define(["map","validator","restrictions","connections"], function(map,validator,
 	    $('.app_left_section_years').hide();
     };
     var showUserActive=function(data){
-	var chain = data.username+'<br>'+'('+validator.getRol(data.roleId)+')';
+	var chain = data.username+'<br>'+'('+validator.getRol(data.rol.id)+')';
 	$(".tooltip_user_active .user_label").html(chain);
     };
     var logoutRequest = function(){
@@ -218,7 +217,7 @@ define(["map","validator","restrictions","connections"], function(map,validator,
 			if (json){
 			    if (json.response.success){
 				valid=true;
-				amplify.store( 'dataLoggingAGAVE',null );
+				amplify.store( 'dataLoggingMAPAS',null );
 				reloadPage();
 			    }else{
 				msg=json.response.message;
@@ -639,12 +638,12 @@ define(["map","validator","restrictions","connections"], function(map,validator,
             getUsersRequest({action:'getnodes',id:userId,useractive:loggedUser.id,currentyear:a.currentyear});
         }
         $(".app_tool_section").tools({userActive:a});
-        $("#map").legend();
-        
+		$("#map").legend();
         map.init(a);
-        
+
         buildMeasureTool();
-    };
+
+	};
     var showReport = function(){
 	hideReport();
 	var chain='<div class="veil_report"></div>'+
@@ -766,7 +765,7 @@ define(["map","validator","restrictions","connections"], function(map,validator,
 	}
     };
     var reloadPage=function(){
-	amplify.store( 'dataLoggingAGAVE',null );
+	amplify.store( 'dataLoggingMAPAS',null );
 	location.reload();
     };
     var init = function(a){

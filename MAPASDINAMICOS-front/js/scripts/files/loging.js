@@ -69,7 +69,7 @@ define(["structure","connections","validator"], function(structure,connections,v
 			statusCode:{
 				200: function (json,estatus){
 					structure.init(json);
-					amplify.store( 'dataLoggingAGAVE', json);
+					amplify.store( 'dataLoggingMAPAS', json);
 				},
 				400: function(){
 					showMessage('Error en la información');
@@ -118,7 +118,7 @@ define(["structure","connections","validator"], function(structure,connections,v
 		});
     };
     var sessionActive = function(){
-	var data = amplify.store( 'dataLoggingAGAVE' );
+	var data = amplify.store( 'dataLoggingMAPAS' );
 	var startLoggin=false;
 	if ((typeof data != "undefined")&&(data!=null)) {
 	    startLoggin=true;
